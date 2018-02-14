@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { ContentComponent } from './content/content.component';
+import { QuananComponent } from './content/quanan/quanan.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContentComponent,
+    QuananComponent
   ],
   imports: [
     BrowserModule

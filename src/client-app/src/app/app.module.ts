@@ -4,12 +4,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { ContentComponent } from './content/content.component';
+import { QuananComponent } from './content/quanan/quanan.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    ContentComponent,
+    QuananComponent
   ],
   imports: [
     BrowserModule

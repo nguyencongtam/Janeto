@@ -1,0 +1,12 @@
+#content {
+    border: 1px solid black;
+    padding-top: 20px;
+}
+
+#bar {
+    text-align: center;
+}
+
+.img {
+    background-color: none;
+}

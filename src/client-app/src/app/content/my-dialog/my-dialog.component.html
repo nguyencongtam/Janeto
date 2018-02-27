@@ -1,0 +1,42 @@
+<div>
+  <h2 mat-dialog-title>SET PARTY</h2>
+  <hr>
+  <mat-dialog-content>
+    <div>
+      <label>Leader:</label>
+      <label style="margin-left: 52px;">Ha Pham</label>
+    </div>
+    <div>
+      <label>Type:</label>
+      <input type="text" style="margin-left: 70px;">
+    </div>
+    <div>
+      <label>Number Max:</label>
+      <input type="number" min="1" style="margin-left: 10px;">
+      <label style="margin-left: 10px;">people</label>
+    </div>
+    <div>
+      <label>Status:</label>
+      <select style="margin-left: 60px;">
+        <option value="open">Open</option>
+        <option value="private">Private</option>
+      </select>
+    </div>
+    <div>
+      <label>Time:</label>
+      <input type="time" style="margin-left: 70px;"><label>-</label><input type="time">
+    </div>
+    <div>
+      <label>Min prices:</label>
+      <input type="number" min="1000" step="1000" style="margin-left: 31px;">
+      <label>VND</label>
+    </div>
+    <br>
+    <!-- <strong>{{data}}</strong> -->
+  </mat-dialog-content>
+  <hr>
+  <mat-dialog-actions>
+    <button mat-button (click)="onCloseConfirm()">Create</button>
+    <button mat-button (click)="onCloseCancel()" style="margin-left: 30px;">Cancel</button>
+  </mat-dialog-actions>
+</div>

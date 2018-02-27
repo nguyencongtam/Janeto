@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MyDialogComponent} from '../my-dialog/my-dialog.component'
 
 @Component({
   selector: 'app-quanan',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuananComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
+  openDialog() {
+    //console.log("dialog");
+    let dialogRef = this.dialog.open(MyDialogComponent, {
+      width: '600px',
+     // data: 'this is data'
+    })
+  }
 }
+

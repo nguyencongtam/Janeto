@@ -46,7 +46,10 @@ export class GoogleMapComponent implements OnInit {
       {
         this.locationRestaurant = new google.maps.Marker({
           position: location[i],
-          map: this.map       
+          map: this.map,
+          icon: ({url: 'http://www.hentiesbaytourism.com/wp-content/uploads/2016/06/restaurant_marker.png',
+          scaledSize: new google.maps.Size(50, 50)
+        })             
         });
       }
       

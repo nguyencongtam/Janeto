@@ -6,6 +6,7 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -16,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MyDialogComponent } from '../app/content/my-dialog/my-dialog.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ViewHomeComponent } from './view-home/view-home.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { SignupComponent } from './signup/signup.component';
     FooterComponent,
     MyDialogComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ViewHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,12 @@ import { SignupComponent } from './signup/signup.component';
     [BrowserAnimationsModule],
     [AlertModule.forRoot()],
     NgbModule.forRoot(),
-    MatDialogModule
+    MatDialogModule,
+    RouterModule.forRoot([
+      {path: 'home', component: ViewHomeComponent},
+      {path: '', redirectTo: 'home', pathMatch: 'full' },
+      {path: 'login', component: LoginComponent}
+    ])
   ],
   entryComponents: [
     MyDialogComponent

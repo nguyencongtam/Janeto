@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark menu">
-  <a class="navbar-brand" href="#">ANCUNG.COM</a>
+  <a class="navbar-brand" [routerLink]="['/home']">ANCUNG.COM</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,13 +19,13 @@
           <i class="fa fa-address-book" aria-hidden="true"></i> FRIENDS</a>
       </li>
     </ul>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign In</button>
+    <button [routerLink]="['/login']" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign In</button>
   </div>
 </nav>
 
-<div class="welcom pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+<!-- <div class="welcom pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <img class="mb-4" src="assets/logo.png" alt="" width="152" height="152">
   <h1 class="display-4">WELCOM TO ANCUNG.COM</h1>
 
   <p class="lead">If you alone, don't worry, quickly search and enjoy a party with us! </p>
-</div>
+</div> -->

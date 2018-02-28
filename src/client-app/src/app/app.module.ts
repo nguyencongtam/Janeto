@@ -14,7 +14,8 @@ import { QuananComponent } from './content/quanan/quanan.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { MyDialogComponent } from '../app/content/my-dialog/my-dialog.component';
-
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { MyDialogComponent } from '../app/content/my-dialog/my-dialog.component'
     QuananComponent,
     MenuComponent,
     FooterComponent,
-    MyDialogComponent
+    MyDialogComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

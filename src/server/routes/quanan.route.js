@@ -3,6 +3,8 @@ var quananController = require('../controller/quanan.controller');
 
 router.post('/', createQuanAn);
 router.get('/', getQuanAn);
+router.put('/:id', updateQuanAn);
+router.delete('/:id', deleteQuanAn);
 
 module.exports = router;
 
@@ -65,3 +67,27 @@ function getQuanAn(req, res, next) {
         next(err);
     })
 }
+
+function updateQuanAn(req, res, next) {
+    var id = req.params.id;
+    var quanan = req.body;
+    quananController.updateQuanAn(quanan)
+        .then(function (quanan) {
+            res.send(quanan);
+        })
+        .catch(function (err) {
+            next(err);
+        })
+
+}
+
+function deleteQuanAn(req, res, next) {
+    var id = req.params.id;
+    quananController.deleteQuanAn(id)
+    .then(function () {
+        res.send('delete successfully');
+    })
+    .catch(function (err) {
+        next(err);
+    })
+} 

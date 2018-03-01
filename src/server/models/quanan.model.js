@@ -19,19 +19,22 @@ var quananSchema = new Schema({
         required: true
     },
     mota: {
-        type: String,
+        type: String
+        // required: true
     },
     image: {
-        type: String,
+        type: String
+        // required: true
     },
     stat: {
-        type: String,
+        type: String
+        // required: true
     },
-    iat: {
+    lat: {
         type: Number,
         required: true
     },
-    ing: {
+    lng: {
         type: Number,
         required: true
     }

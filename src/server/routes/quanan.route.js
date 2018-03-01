@@ -11,42 +11,42 @@ function createQuanAn(req, res, next) {
    // console.log(newQuanAn);
     if (!newQuanAn.tenquan) {
         next({
-            statusCode: 400,
+            statusCode: 401,
             message: "name is required"
         })
     } 
     else if (!newQuanAn.quan) {
         next({
-            statusCode: 400,
+            statusCode: 402,
             message: "District is required"
         })
     } 
     else if (!newQuanAn.thanhpho) {
         next({
-            statusCode: 400,
+            statusCode: 403,
             message: "City is required"
         })
     }
     else if (!newQuanAn.datnuoc) {
         next({
-            statusCode: 400,
+            statusCode: 404,
             message: "Country is required"
         })
     } 
-    else if (!newQuanAn.iat) {
+    else if (!newQuanAn.lat) {
         next({
-            statusCode: 400,
+            statusCode: 405,
             message: "iat is required"
         })
     }
-    else if (!newQuanAn.ing) {
+    else if (!newQuanAn.lng) {
         next({
-            statusCode: 400,
+            statusCode: 406,
             message: "ing is required"
         })
     }
     else {
-        quananController.createQuanAn(newQuanAn)
+        quananController.createQuanan(newQuanAn)
             .then(function (quanan) {
                 res.json(quanan);
             })

@@ -1,12 +1,13 @@
 var QuanAn = require('../models/quanan.model');
 
 module.exports = {
-    getQuanan: getQuanan,
-    createQuanan: createQuanan
+    getQuanAn: getQuanAn,
+    createQuanAn: createQuanAn
 }
 
-function getQuanan() {
-    return QuanAn.find()
+function createQuanAn(newQuanAn) {
+    var quanan = new QuanAn(newQuanAn);
+    return quanan.save()
     .then(function (quanan) {
         return Promise.resolve(quanan);
     })
@@ -15,9 +16,8 @@ function getQuanan() {
     })
 }
 
-function createQuanan(newQuanAn) {
-    var quanan = new QuanAn(newQuanAn);
-    return quanan.save()
+function getQuanAn() {
+    return QuanAn.find()
     .then(function (quanan) {
         return Promise.resolve(quanan);
     })

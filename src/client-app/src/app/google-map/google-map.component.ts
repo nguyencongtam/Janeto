@@ -1,6 +1,12 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { } from '@types/googlemaps';
+import { DataService } from '../provider/data.service'
+import { QuanAn } from '../models/QuanAn';
+// import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Observer } from 'rxjs/Observer';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-google-map',
@@ -9,13 +15,26 @@ import { } from '@types/googlemaps';
 })
 export class GoogleMapComponent implements OnInit {
   @ViewChild('gmap') gmapElement: any;
+  tittle = 'hello';
+  public _QuanAn: QuanAn;
+  quanAn: any = {};
   map: google.maps.Map;
   locationUser: google.maps.Marker;
   locationRestaurant: google.maps.Marker;
-  constructor() { 
+  constructor(
+    private _dataService: DataService,
+    // private toastr: ToastrService
+  ) 
+  { 
+    
   }
 
   ngOnInit() {
+    this.getQuanAn();
+    // this.ToastrService.success('Thanh cong',this._dataService.getQuanAn());
+    // var quanAn = new Object;
+    // quanAn =  this._dataService.getQuanAn(); 
+    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.ngLocationUser(position.coords.latitude, position.coords.longitude);
@@ -26,12 +45,40 @@ export class GoogleMapComponent implements OnInit {
     }
   }
 
+//   dataExemble()
+//   {
+// getDataWalletId(idwallet){
+//         this.WalletService.getDataWallets();
+//         this.WalletService.getAllWallet.subscribe((data) => {
+//             data.forEach(element => {
+//                 if(element._id == idwallet){
+//                     this.dataWalletChoose = element;
+//                 }
+//             });
+//         })
+//     }
+//   }
+
+  getQuanAn()
+  {
+    this._dataService.getQuanAn();
+    this._dataService.getAllQuanAn.subscribe((data) =>{
+      // console.log(data);
+      this.quanAn = data;
+      return this.quanAn;
+    })
+  }
+
   ngLocationUser(latitude, longitude) {
-    var location = [
-      {lat: 10.9946915, lng: 106.661486},
-      {lat: 10.9934961, lng: 106.6615826},
-      {lat: 10.9935119, lng: 106.6594851}
-    ];
+    // var quanAn = new 
+    // var quanAn = (this._dataService.getQuanAn());
+    var location = []
+    
+    // var location = [
+    //   {lat: 10.9934961, lng: 106.661486},
+    //   {lat: 10.9934961, lng: 106.6615826},
+    //   {lat: 10.9935119, lng: 106.6594851}
+    // ];
     var mapProp = {
       center: new google.maps.LatLng(latitude, longitude),
       zoom: 18,

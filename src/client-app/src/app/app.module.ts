@@ -6,7 +6,9 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
+import { QuanAnService } from './providers/quan-an.service'; 
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -43,12 +45,13 @@ import { ViewHomeComponent } from './view-home/view-home.component';
       {path: 'home', component: ViewHomeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full' },
       {path: 'login', component: LoginComponent}
-    ])
+    ]),
+    HttpModule
   ],
   entryComponents: [
     MyDialogComponent
   ],
-  providers: [],
+  providers: [QuanAnService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

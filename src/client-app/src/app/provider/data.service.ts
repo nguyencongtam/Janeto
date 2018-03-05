@@ -22,6 +22,7 @@ get getAllQuanAn(){
   return this._QuanAn.asObservable();
 }
 
+
   getQuanAn(): Promise<any>{
    return this.http.get('http://localhost:8081/quanan').toPromise().then(resopnse =>{
     this._QuanAn.next(resopnse.json());

@@ -18,6 +18,8 @@ import { MyDialogComponent } from '../app/content/my-dialog/my-dialog.component'
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ViewHomeComponent } from './view-home/view-home.component';
+import { JoinDialogComponent } from './content/join-dialog/join-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ViewHomeComponent } from './view-home/view-home.component';
     MyDialogComponent,
     LoginComponent,
     SignupComponent,
-    ViewHomeComponent
+    ViewHomeComponent,
+    JoinDialogComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import { ViewHomeComponent } from './view-home/view-home.component';
     ])
   ],
   entryComponents: [
-    MyDialogComponent
+    MyDialogComponent,
+    JoinDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

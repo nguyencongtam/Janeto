@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 var db = require('./db');
 var quananRouter = require('./routes/quanan.route');
+var userRouter = require('./routes/user.route');
 
 app.all('*', function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.use('/quanan', quananRouter);
+app.use('/users', userRouter);
 
 app.listen(8081, function () {
     console.log("Ung dung Node.js dang lang nghe tai dia chi: http://localhost:8081");

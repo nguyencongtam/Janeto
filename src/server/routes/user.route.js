@@ -1,10 +1,11 @@
 var router = require('express').Router();
+var auth = require('../middle-ware/auth');
 var userController = require('../controller/user.controller');
 
 router.post('/', createUser);
 router.get('/', getUser);
-router.put('/:id', updateUser);
-router.delete('/:id', deleteUser);
+router.put('/:id', auth.auth(), updateUser);
+router.delete('/:id', auth.auth(), deleteUser);
 
 module.exports = router;
 

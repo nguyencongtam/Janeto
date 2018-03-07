@@ -11,7 +11,7 @@ module.exports = {
 }
 
 function createUser(newUser) {
-    return User.find({ email: newUser.Email })
+    return User.find({ Email: newUser.Email })
     .then(function (foundUsers) {
         if (foundUsers.length > 0) {
             return Promise.reject({
@@ -24,7 +24,7 @@ function createUser(newUser) {
                 .update(newUser.Password)
                 .digest('hex');
 
-                console.log(hash)
+                //console.log(hash)
 
             newUser.Password = hash;
             var user = new User(newUser);

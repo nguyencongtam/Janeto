@@ -12,6 +12,10 @@ import { AlertModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { FriendComponent } from './friend/friend.component';
+import { ListfriendsComponent } from './friend/listfriends/listfriends.component';
+import { ProfileComponent } from './friend/profile/profile.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +25,11 @@ import { SignupComponent } from './signup/signup.component';
     MenuComponent,
     FooterComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    FriendComponent,
+    ListfriendsComponent,
+    ProfileComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

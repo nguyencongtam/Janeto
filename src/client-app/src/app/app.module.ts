@@ -21,6 +21,7 @@ import { ViewHomeComponent } from './view-home/view-home.component';
 import { JoinDialogComponent } from './content/join-dialog/join-dialog.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { JoinDialogComponent } from './content/join-dialog/join-dialog.component
     SignupComponent,
     ViewHomeComponent,
     JoinDialogComponent,
+    
     
   ],
   imports: [

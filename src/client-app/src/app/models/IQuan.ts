@@ -7,6 +7,6 @@ export interface IQuan {
     MoTa: string,
     Image: string,
     Stat: string,
-    Iat: number,
+    Lat: number,
     Lng: number
 }

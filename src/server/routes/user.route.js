@@ -1,11 +1,14 @@
 var router = require('express').Router();
 var auth = require('../middle-ware/auth');
 var userController = require('../controller/user.controller');
+var User = require('../models/user.model');
 
 router.post('/', createUser);
 router.get('/', getUser);
 router.put('/:id', auth.auth(), updateUser);
 router.delete('/:id', auth.auth(), deleteUser);
+
+router.post('/savetypefood/:id', auth.auth(), saveTypeFood);
 
 module.exports = router;
 
@@ -87,3 +90,23 @@ function deleteUser(req, res, next) {
         })
 }
 
+function saveTypeFood(req, res, next) {
+    var typeId = req.params.id;
+    var emailUser = req.emailUser;
+
+    User.findOne({ Email: emailUser })
+    .then(user => {
+        //console.log(user._id);
+        userController.saveTypeFood(typeId, user._id)
+        .then(function (type) {
+            res.send(type);
+        })
+        .catch(function (err) {
+            next(err);
+        })
+
+    })
+    .catch(err => {
+        console.log(err.message);
+    })
+}        

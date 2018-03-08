@@ -42,13 +42,12 @@ var userSchema = new Schema({
         required: true
     },
     TypeFood: [{
+        typefoodId: String
+    }],
+    Friend: [{
         type: Schema.Types.ObjectId,
-        ref: 'typefood'
+        ref: 'user'
     }]
-    // Friend: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'friend'
-    // }]
 });
 
 userSchema.index({ Name: 'text', Phone: 'text' });

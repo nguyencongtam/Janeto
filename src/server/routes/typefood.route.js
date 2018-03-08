@@ -4,8 +4,8 @@ var typefoodController = require('../controller/typefood.controller');
 
 router.post('/', createTypeFood);
 router.get('/', getTypeFood);
-router.put('/:id', updateTypeFood);
-router.delete('/:id', deleteTypeFood);
+router.put('/:id', auth.auth(), updateTypeFood);
+router.delete('/:id', auth.auth(), deleteTypeFood);
 
 module.exports = router;
 

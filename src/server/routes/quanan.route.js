@@ -1,10 +1,11 @@
+var auth = require('../middle-ware/auth');
 var router = require('express').Router();
 var quananController = require('../controller/quanan.controller');
 
 router.post('/', createQuanAn);
 router.get('/', getQuanAn);
-router.put('/:id', updateQuanAn);
-router.delete('/:id', deleteQuanAn);
+router.put('/:id', auth.auth(), updateQuanAn);
+router.delete('/:id', auth.auth(), deleteQuanAn);
 
 module.exports = router;
 
@@ -44,6 +45,36 @@ function createQuanAn(req, res, next) {
         next({
             statusCode: 406,
             message: "ing is required"
+        })
+    }
+    else if (!newQuanAn.MaxPrice) {
+        next({
+            statusCode: 407,
+            message: "MaxPrice is required"
+        })
+    }
+    else if (!newQuanAn.MinPrice) {
+        next({
+            statusCode: 408,
+            message: "MinPrice is required"
+        })
+    }
+    else if (!newQuanAn.TimeStart) {
+        next({
+            statusCode: 409,
+            message: "TimeStart is required"
+        })
+    }
+    else if (!newQuanAn.TimeEnd) {
+        next({
+            statusCode: 410,
+            message: "TimeEnd is required"
+        })
+    }
+    else if (!newQuanAn.Rate) {
+        next({
+            statusCode: 411,
+            message: "Rate is required"
         })
     }
     else {

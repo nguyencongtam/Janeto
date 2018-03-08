@@ -41,13 +41,13 @@ var userSchema = new Schema({
         type: Number,
         required: true
     },
-    // TypeFood: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'TypeFood'
-    // }],
+    TypeFood: [{
+        type: Schema.Types.ObjectId,
+        ref: 'typefood'
+    }]
     // Friend: [{
     //     type: Schema.Types.ObjectId,
-    //     ref: 'Friend'
+    //     ref: 'friend'
     // }]
 });
 

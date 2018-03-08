@@ -34,7 +34,31 @@ var quananSchema = new Schema({
     Lng: {
         type: Number,
         required: true
-    }
+    },
+    MinPrice: {
+        type: Number,
+        required: true
+    },
+    MinPrice: {
+        type: Number,   
+        required: true
+    },
+    TimeStart: {
+        type: Number,
+        required: true
+    },
+    TimeEnd: {
+        type: Number,
+        required: true
+    },
+    DateTime: {
+        type: Date,
+        //required: true
+    },
+    Rate: {
+        type: Number,
+        required: true
+    }, 
 });
 
 quananSchema.index({ TenQuan: 'text' });

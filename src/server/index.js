@@ -5,9 +5,11 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 
 var db = require('./db');
+
 var quananRouter = require('./routes/quanan.route');
 var userRouter = require('./routes/user.route');
 var authRouter = require('./routes/auth.route');
+var typeFoodRouter = require('./routes/typefood.route');
 
 var errorHandler = require('./middle-ware/error-handler');
 
@@ -24,6 +26,8 @@ app.use(express.static('public'));
 
 app.use('/quanan', quananRouter);
 app.use('/users', userRouter);
+app.use('/type', typeFoodRouter);
+
 app.use('/auth', authRouter);
 
 app.use(errorHandler.errorHandler());

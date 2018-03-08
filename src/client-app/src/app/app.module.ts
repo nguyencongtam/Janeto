@@ -28,6 +28,7 @@ import { FriendComponent } from './friend/friend.component';
 import { ListfriendsComponent } from './friend/listfriends/listfriends.component';
 import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     ListfriendsComponent,
     ProfileComponent,
     WelcomeComponent,
-    JoinDialogComponent
+    JoinDialogComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
       {path: '', redirectTo: 'home', pathMatch: 'full' },
       {path: 'login', component: LoginComponent},
       {path: 'signup', component: SignupComponent},
-      {path: 'listfriend', component: FriendComponent}
+      {path: 'listfriend', component: FriendComponent},
+      {path: '**', component: PageNotFoundComponent}
     ]),
     HttpModule
   ],

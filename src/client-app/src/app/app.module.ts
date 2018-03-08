@@ -24,6 +24,10 @@ import { ViewHomeComponent } from './view-home/view-home.component';
 import { DataService } from './provider/data.service';
 import { ToastrModule } from 'ngx-toastr';
 
+import { FriendComponent } from './friend/friend.component';
+import { ListfriendsComponent } from './friend/listfriends/listfriends.component';
+import { ProfileComponent } from './friend/profile/profile.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,11 @@ import { ToastrModule } from 'ngx-toastr';
     MyDialogComponent,
     LoginComponent,
     SignupComponent,
-    ViewHomeComponent
+    ViewHomeComponent,
+    FriendComponent,
+    ListfriendsComponent,
+    ProfileComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +59,8 @@ import { ToastrModule } from 'ngx-toastr';
       {path: 'home', component: ViewHomeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full' },
       {path: 'login', component: LoginComponent},
-      {path: 'signup', component: SignupComponent}
+      {path: 'signup', component: SignupComponent},
+      {path: 'listfriend', component: FriendComponent}
     ]),
     HttpModule
   ],

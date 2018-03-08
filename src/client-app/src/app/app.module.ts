@@ -23,11 +23,12 @@ import { SignupComponent } from './signup/signup.component';
 import { ViewHomeComponent } from './view-home/view-home.component';
 import { DataService } from './provider/data.service';
 import { ToastrModule } from 'ngx-toastr';
-
+import { JoinDialogComponent } from './content/join-dialog/join-dialog.component';
 import { FriendComponent } from './friend/friend.component';
 import { ListfriendsComponent } from './friend/listfriends/listfriends.component';
 import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     FriendComponent,
     ListfriendsComponent,
     ProfileComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    JoinDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     HttpModule
   ],
   entryComponents: [
-    MyDialogComponent
+    MyDialogComponent,
+    JoinDialogComponent
   ],
   providers: [QuanAnService,
     DataService],

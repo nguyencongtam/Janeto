@@ -3,6 +3,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {MyDialogComponent} from '../my-dialog/my-dialog.component';
 import { QuanAnService } from '../../providers/quan-an.service';
 import { IQuan } from '../../models/IQuan';
+// import {MyDialogComponent} from '../my-dialog/my-dialog.component'
+import { JoinDialogComponent } from '../join-dialog/join-dialog.component';
 
 @Component({
   selector: 'app-quanan',
@@ -32,6 +34,12 @@ export class QuananComponent implements OnInit {
       width: '600px',
      // data: 'this is data'
     })
+  }
+  openJoinDialog(){
+      console.log("join dialog");
+      let dialogRef = this.dialog.open(JoinDialogComponent, {
+        width: '600px',
+      })
   }
 }
 

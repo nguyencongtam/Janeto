@@ -7,7 +7,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AlertModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuanAnService } from './providers/quan-an.service'; 
-import { RouterModule } from '@angular/router'
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,7 +20,6 @@ import { MyDialogComponent } from '../app/content/my-dialog/my-dialog.component'
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ViewHomeComponent } from './view-home/view-home.component';
-import { DataService } from './provider/data.service';
 import { ToastrModule } from 'ngx-toastr';
 import { JoinDialogComponent } from './content/join-dialog/join-dialog.component';
 import { FriendComponent } from './friend/friend.component';
@@ -29,6 +27,7 @@ import { ListfriendsComponent } from './friend/listfriends/listfriends.component
 import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -59,22 +58,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ToastrModule.forRoot(),
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {path: 'home', component: ViewHomeComponent},
-      {path: '', redirectTo: 'home', pathMatch: 'full' },
-      {path: 'login', component: LoginComponent},
-      {path: 'signup', component: SignupComponent},
-      {path: 'listfriend', component: FriendComponent},
-      {path: '**', component: PageNotFoundComponent}
-    ]),
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   entryComponents: [
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService,
-    DataService],
+  providers: [QuanAnService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

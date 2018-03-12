@@ -48,11 +48,6 @@ export class QuanAnService {
     this.idQuanAn.next(data);
   }
 
-  shareInfoParty(data: any[])
-  {
-    this._partyQuan.next(data);
-    console.log("share data service: " + data);    
-  }
 
   
 }

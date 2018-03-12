@@ -8,5 +8,12 @@ export interface IQuan {
     Image: string,
     Stat: string,
     Lat: number,
-    Lng: number
+    Lng: number,
+    Party: [
+        {
+            Leader: String,
+            Title: String
+        }
+    ]
+
 }

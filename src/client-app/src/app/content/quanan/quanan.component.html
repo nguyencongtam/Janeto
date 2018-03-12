@@ -6,6 +6,8 @@
   <span class="btn">
     <button type="button" class="btn btn-danger">View more</button>
     <button type="button" class="btn btn-danger" mat-raised-button (click)="openDialog()">Set party</button>
-    <button type="button" class="btn btn-success" mat-raised-button (click)="openJoinDialog()">Join</button>
+    <button type="button" class="btn btn-success" mat-raised-button (click)="openJoinDialog(quan._id)">
+      <!-- <app-join-dialog style="visibility:hidden" [idQuanAn]='quan._id'></app-join-dialog> -->
+      Join</button>
   </span>
 </div>

@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var quananSchema = new Schema({
+    // _id: {
+    //     type: String
+    // },
     TenQuan: {
         type: String,
         required: true
@@ -34,6 +37,20 @@ var quananSchema = new Schema({
     Lng: {
         type: Number,
         required: true
+    },
+    Party: {
+        _id: {
+            type: String,
+            required: true
+        },
+        Leader: {
+            type: String,
+            required: true
+        },
+        Title: {
+            type: String,
+            required: true
+        },
     }
 });
 

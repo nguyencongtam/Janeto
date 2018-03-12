@@ -4,7 +4,8 @@ module.exports = {
     getQuanAn: getQuanAn,
     createQuanAn: createQuanAn,
     updateQuanAn: updateQuanAn,
-    deleteQuanAn: deleteQuanAn
+    deleteQuanAn: deleteQuanAn,
+    getTungQuanAn: getTungQuanAn
 }
 
 function createQuanAn(newQuanAn) {
@@ -48,4 +49,21 @@ function deleteQuanAn(idQuanAn) {
         .catch(function (err) {
             return Promise.reject(err);
         })
+}
+
+
+function getTungQuanAn(idQuanAn){
+    console.log(idQuanAn);
+    try{
+        return QuanAn.findOne({_id: idQuanAn},{party:1, _id:0})
+        .then(function (data){        
+            return Promise.resolve(data);
+        })
+        .catch(function (err){
+            return Promise.reject(err);
+        })
+    }catch(err){
+        console.log(err);
+    }
+
 }

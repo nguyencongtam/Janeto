@@ -5,6 +5,7 @@ router.post('/', createQuanAn);
 router.get('/', getQuanAn);
 router.put('/:id', updateQuanAn);
 router.delete('/:id', deleteQuanAn);
+router.get('/:id', getTungQuanAn);
 
 module.exports = router;
 
@@ -91,3 +92,14 @@ function deleteQuanAn(req, res, next) {
         next(err);
     })
 } 
+
+function getTungQuanAn(req, res, next){
+    var id = req.params.id;
+    quananController.getTungQuanAn(id)
+    .then(function (data){
+        res.send(data);
+    })
+    .catch(function (err){
+        next(err);
+    })
+}

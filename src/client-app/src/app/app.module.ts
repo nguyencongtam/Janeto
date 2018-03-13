@@ -6,8 +6,10 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router'
-
+import { RouterModule } from '@angular/router';
+import { QuanAnService } from './providers/quan-an.service'; 
+import { HttpModule } from '@angular/http';
+import {Amg}
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { ContentComponent } from './content/content.component';
@@ -19,6 +21,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ViewHomeComponent } from './view-home/view-home.component';
 import { JoinDialogComponent } from './content/join-dialog/join-dialog.component';
+import { InfoComponent } from './content/info/info.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 
@@ -35,8 +39,7 @@ import { JoinDialogComponent } from './content/join-dialog/join-dialog.component
     SignupComponent,
     ViewHomeComponent,
     JoinDialogComponent,
-    
-    
+    InfoComponent   
   ],
   imports: [
     BrowserModule,
@@ -45,17 +48,22 @@ import { JoinDialogComponent } from './content/join-dialog/join-dialog.component
     [AlertModule.forRoot()],
     NgbModule.forRoot(),
     MatDialogModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDht0m0P8xztMlbJNHuo7jCEiFjPYu1tQc'
+    }),
     RouterModule.forRoot([
       {path: 'home', component: ViewHomeComponent},
       {path: '', redirectTo: 'home', pathMatch: 'full' },
-      {path: 'login', component: LoginComponent}
-    ])
+      {path: 'login', component: LoginComponent},
+      {path: 'info', component: InfoComponent } // dieu huong
+    ]),
+    HttpModule
   ],
   entryComponents: [
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [],
+  providers: [QuanAnService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 
+import { AgmCoreModule } from '@agm/core';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private active:ActivatedRoute) { }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
-
+  
+  
 }

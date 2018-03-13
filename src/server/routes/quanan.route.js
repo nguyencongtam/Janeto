@@ -3,50 +3,51 @@ var quananController = require('../controller/quanan.controller');
 
 router.post('/', createQuanAn);
 router.get('/', getQuanAn);
+router.put('/:id', updateQuanAn);
+router.delete('/:id', deleteQuanAn);
 
 module.exports = router;
 
 function createQuanAn(req, res, next) {
     var newQuanAn = req.body;
-   // console.log(newQuanAn);
-    if (!newQuanAn.tenquan) {
+    if (!newQuanAn.TenQuan) {
         next({
-            statusCode: 401,
+            statusCode: 400,
             message: "name is required"
         })
     } 
-    else if (!newQuanAn.quan) {
+    else if (!newQuanAn.Quan) {
         next({
-            statusCode: 402,
+            statusCode: 401,
             message: "District is required"
         })
     } 
-    else if (!newQuanAn.thanhpho) {
+    else if (!newQuanAn.ThanhPho) {
         next({
-            statusCode: 403,
+            statusCode: 402,
             message: "City is required"
         })
     }
-    else if (!newQuanAn.datnuoc) {
+    else if (!newQuanAn.DatNuoc) {
         next({
-            statusCode: 404,
+            statusCode: 403,
             message: "Country is required"
         })
     } 
-    else if (!newQuanAn.lat) {
+    else if (!newQuanAn.Iat) {
         next({
             statusCode: 405,
             message: "iat is required"
         })
     }
-    else if (!newQuanAn.lng) {
+    else if (!newQuanAn.Lng) {
         next({
             statusCode: 406,
             message: "ing is required"
         })
     }
     else {
-        quananController.createQuanan(newQuanAn)
+        quananController.createQuanAn(newQuanAn)
             .then(function (quanan) {
                 res.json(quanan);
             })
@@ -58,7 +59,7 @@ function createQuanAn(req, res, next) {
 }
 
 function getQuanAn(req, res, next) {
-    quananController.getQuanan()
+    quananController.getQuanAn()
     .then(function (quanan) {
         res.send(quanan);
     })
@@ -66,3 +67,27 @@ function getQuanAn(req, res, next) {
         next(err);
     })
 }
+
+function updateQuanAn(req, res, next) {
+    var id = req.params.id;
+    var quanan = req.body;
+    quananController.updateQuanAn(quanan)
+        .then(function (quanan) {
+            res.send(quanan);
+        })
+        .catch(function (err) {
+            next(err);
+        })
+
+}
+
+function deleteQuanAn(req, res, next) {
+    var id = req.params.id;
+    quananController.deleteQuanAn(id)
+    .then(function () {
+        res.send('delete successfully');
+    })
+    .catch(function (err) {
+        next(err);
+    })
+} 

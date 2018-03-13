@@ -2,45 +2,42 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var quananSchema = new Schema({
-    tenquan: {
+    TenQuan: {
         type: String,
         required: true
     },
-    quan: {
+    Quan: {
         type: String,
         required: true
     },
-    thanhpho: {
+    ThanhPho: {
         type: String,
         required: true
     },
-    datnuoc: {
+    DatNuoc: {
         type: String,
         required: true
     },
-    mota: {
-        type: String
-        // required: true
+    MoTa: {
+        type: String,
     },
-    image: {
-        type: String
-        // required: true
+    Image: {
+        type: String,
     },
-    stat: {
-        type: String
-        // required: true
+    Stat: {
+        type: String,
     },
-    lat: {
+    Iat: {
         type: Number,
         required: true
     },
-    lng: {
+    Lng: {
         type: Number,
         required: true
     }
 });
 
-quananSchema.index({ tenquan: 'text' });
+quananSchema.index({ TenQuan: 'text' });
 
 var QuanAn = mongoose.model('quanan', quananSchema);
 module.exports = QuanAn;

@@ -8,7 +8,8 @@ module.exports = {
     createUser: createUser,
     updateUser: updateUser,
     deleteUser: deleteUser,
-    saveTypeFood: saveTypeFood
+    saveTypeFood: saveTypeFood,
+    addFriends: addFriends
 }
 
 function createUser(newUser) {
@@ -82,6 +83,29 @@ function saveTypeFood(typefoodId, userId) {
             return Promise.resolve();
         })
         .catch(function (err) {
+            return Promise.reject(err);
+        })
+}
+
+function addFriends(friendId) {
+    var frId = { friendId };
+    var usId = { friendId: '5aa0f31a6cbb9c24bcb03f7b' }
+    return User.update({ _id: '5aa0f31a6cbb9c24bcb03f7b'}, { $addToSet: { Friend: frId } })
+        .then(function () {
+            console.log('them thanh cong user');
+            // return Promise.resolve();
+            User.update({ _id:  friendId}, { $addToSet: { Friend: usId } })
+                .then(function (raw) {
+                    console.log('them thanh cong friend');
+                    return Promise.resolve();
+                })
+                .catch(function (err) {
+                    console.log('loi them friend');
+                    return Promise.reject();
+                })
+        })
+        .catch(function (err) {
+            console.log('loi them user');
             return Promise.reject(err);
         })
 }

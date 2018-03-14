@@ -23,6 +23,7 @@ app.all('*', function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 app.use(express.static('public'));
+app.use(express.static('apidoc')); //localhost:8081
 
 app.use('/quanan', quananRouter);
 app.use('/users', userRouter);

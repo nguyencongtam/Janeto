@@ -45,8 +45,7 @@ var userSchema = new Schema({
         typefoodId: String
     }],
     Friend: [{
-        type: Schema.Types.ObjectId,
-        ref: 'user'
+        friendId: String
     }]
 });
 

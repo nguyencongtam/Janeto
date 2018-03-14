@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-
+import {GoogleMapComponent} from '../../google-map/google-map.component'
 import { AgmCoreModule } from '@agm/core';
 @Component({
   selector: 'app-info',

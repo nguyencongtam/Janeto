@@ -12,4 +12,8 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
+  signIn(fistName, lastName, email, password, confirmPassword, optradio) {
+    console.log(fistName, lastName, email, password, confirmPassword, optradio);
+  }
+
 }

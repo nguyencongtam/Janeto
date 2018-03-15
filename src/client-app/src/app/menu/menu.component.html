@@ -19,6 +19,13 @@
           <i class="fa fa-address-book" aria-hidden="true"></i> FRIENDS</a>
       </li>
     </ul>
-    <button [routerLink]="['/login']" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign In</button>
+
+    <!-- <p [(ngModel)]='isLogin' *ngIf="isLogin;else other_content">
+      <span id="welcome">WELLCOME TO MY APP</span>
+    </p>
+    <ng-template #other_content> -->
+      <button [routerLink]="['/login']" class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign In</button>
+    <!-- </ng-template> -->
+    
   </div>
 </nav>

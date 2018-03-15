@@ -1,7 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { QuanAnService } from './quan-an.service';
-
 describe('QuanAnService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({

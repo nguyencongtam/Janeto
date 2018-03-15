@@ -28,6 +28,7 @@ import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { InfoComponent } from './content/info/info.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AppRoutingModule } from './/app-routing.module';
     ProfileComponent,
     WelcomeComponent,
     JoinDialogComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    InfoComponent   
   ],
   imports: [
     BrowserModule,

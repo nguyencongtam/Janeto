@@ -1,11 +1,43 @@
 var router = require('express').Router();
 var auth = require('../middle-ware/auth');
 var userController = require('../controller/user.controller');
+var User = require('../models/user.model');
 
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "firstname": "John",
+ *       "lastname": "Doe"
+ *     }
+ *
+ * @apiError UserNotFound The id of the User was not found.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "UserNotFound"
+ *     }
+ */
 router.post('/', createUser);
 router.get('/', getUser);
 router.put('/:id', auth.auth(), updateUser);
 router.delete('/:id', auth.auth(), deleteUser);
+
+
+//  router.post('/login', login);
+
+router.post('/savetypefood/:id', /*auth.auth(),*/ saveTypeFood);
+router.post('/addfriend/:id', addFriend);
 
 module.exports = router;
 
@@ -87,3 +119,47 @@ function deleteUser(req, res, next) {
         })
 }
 
+function saveTypeFood(req, res, next) {
+    var typeId = req.params.id;
+    var emailUser = req.emailUser;
+    User.findOne({ Email: emailUser })
+    .then(user => {
+        //console.log(user._id);
+        userController.saveTypeFood(typeId, user._id)
+        .then(function (type) {
+            res.send(type);
+        })
+        .catch(function (err) {
+            next(err);
+        })
+
+    })
+    .catch(err => {
+        console.log(err.message);
+    })
+}        
+
+function addFriend(req, res, next) {
+    // accept add friend
+
+    var friendId = req.params.id;
+    var emailUser = req.emailUser;
+    //console.log(emailUser);
+    User.findOne({ Email: emailUser })
+    .then(user => {
+
+        userController.addFriends(friendId, user._id)
+        .then(function (friend) {
+            res.send(friend);
+        })
+        .catch(function (err) {
+            next(err);
+        })
+
+    })
+    .catch(err => {
+        console.log(err.message);
+    })
+
+    
+}

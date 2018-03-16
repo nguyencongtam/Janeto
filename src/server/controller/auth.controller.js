@@ -48,7 +48,7 @@ function login(email, password) {
 }
 
 function checkAuth(email) {
-    console.log(email);
+    //console.log(email);
     return User.findOne({ Email: email.email })
         .then(function (foundUser) {
             if (foundUser) {

@@ -29,7 +29,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InfoComponent } from './content/info/info.component';
-
+import { UserComponent } from './user/user.component';
+import { LeftComponent } from './user/left/left.component';
+import { ChangepassComponent } from './user/changepass/changepass.component';
+import { SignoutComponent } from './user/signout/signout.component';
+import { EditComponent } from './user/edit/edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +52,12 @@ import { InfoComponent } from './content/info/info.component';
     WelcomeComponent,
     JoinDialogComponent,
     PageNotFoundComponent,
-    InfoComponent   
+    InfoComponent,   
+    UserComponent,
+    LeftComponent,
+    ChangepassComponent,
+    SignoutComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class LoginService {
+  isLogin: Boolean = false;
+
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   login(email, password) {

@@ -19,13 +19,13 @@
     <input type="password" id="inputPassword" class="form-control" placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" required>
     
     <label class="radio-inline">
-      <input type="radio" name="sex" id="inlineCheckbox1" value="male" [(ngModel)]="male" name="optradio"/> Male
+      <input type="radio" name="sex" id="inlineCheckbox1" value="male" [(ngModel)]="sex" name="optradio"/> Male
     </label>
     <label class="radio-inline">
-      <input type="radio" name="sex" id="inlineCheckbox2" value="female" [(ngModel)]="female" name="optradio"/> Female
+      <input type="radio" name="sex" id="inlineCheckbox2" value="female" [(ngModel)]="sex" name="optradio"/> Female
     </label>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signIn(fistName, lastName, email, password, confirmPassword, optradio)">Sign Up</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signUp(fistName, lastName, email, password, confirmPassword, sex)">Sign Up</button>
     <h4 class="mt-5 mb-3 text-muted">If you already have a account:</h4>
     <button [routerLink]="['/login']" class="btn btn-lg btn-success btn-block" type="submit">Sign In</button>
   </form>

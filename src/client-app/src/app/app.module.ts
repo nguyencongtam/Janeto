@@ -32,6 +32,7 @@ import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SignupService } from './providers/signup.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,7 @@ import { AppRoutingModule } from './/app-routing.module';
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService, LoginService, HomeguardService],
+  providers: [QuanAnService, LoginService, HomeguardService, SignupService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

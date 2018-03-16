@@ -16,6 +16,12 @@ import { FriendComponent } from './friend/friend.component';
 import { ListfriendsComponent } from './friend/listfriends/listfriends.component';
 import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { UserComponent } from './user/user.component';
+import { LeftComponent } from './user/left/left.component';
+import { InfoComponent } from './user/info/info.component';
+import { ChangepassComponent } from './user/changepass/changepass.component';
+import { SignoutComponent } from './user/signout/signout.component';
+import { EditComponent } from './user/edit/edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +35,13 @@ import { WelcomeComponent } from './welcome/welcome.component';
     FriendComponent,
     ListfriendsComponent,
     ProfileComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    UserComponent,
+    LeftComponent,
+    InfoComponent,
+    ChangepassComponent,
+    SignoutComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

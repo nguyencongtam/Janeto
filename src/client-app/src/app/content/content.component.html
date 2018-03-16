@@ -1,55 +1,51 @@
+<div class="body">
+  <!-- The video -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span>Find</span>
+        <input type="text" id="find" class="form-control" placeholder="Search something.." required autofocus>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span>Type</span>
+        <select class="form-control" style="height: 46px;">
+          <option value="volvo">Restaurent</option>
+          <option value="saab">Store</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span>People join</span>
+        <input type="number" id="number" class="form-control" placeholder="Select number.." required>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span>Time</span>
+        <span>From</span>
+        <input type="time" class="form-control" name="stime">
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span>To</span>
+        <input type="time" class="form-control" name="etime">
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-4">
+        <span>Date</span>
+        <input type="date" class="form-control" placeholder="Select date.." name="bday">
+      </div>
+    </div>
 
-<div id="bar">
-  <span>Find</span>
-  <input type="text" name="" id="" placeholder="search">
-  <span>Type</span>
-  <select>
-    <option value="volvo">Restaurent</option>
-    <option value="saab">Store</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-  <span>People join</span>
-  <input type="number" placeholder="number people" min="0"> 
-  
-  <br>
-  <br>
-  <span>Time</span>
-  <span>from:</span>
-  <input type="time" name="stime">
-  <span>to:</span>
-  <input type="time" name="etime">
-  <span>Date:</span>
-  <input type="date" name="bday">
-  <br>
-  <br>
-  <span>Price</span>
-  <span>from:</span>
-  <input type="number" step="1000" min="0">
-  <span>to:</span>
-  <input type="number" step="1000">
-  <span>Location</span>
-  <select>
-    <option value="">Disttrict 1</option>
-    <option value="">Disttrict 2</option>
-    <option value="">Disttrict 3</option>
-    <option value="">Disttrict 4</option>
-    <option value="">Disttrict 5</option>
-    <option value="">Disttrict 6</option>
-  </select>
-  <br>
-  <br>
-  <button type="button" class="btn btn-danger">
-    <i class="fas fa-search"></i> Search
-  </button>
-  <br>
-  <br>
-  <div class="">
-    <span style="margin-left: -20px;">or</span>
-    <button type="button" class="btn btn-default">
-      <i class="fas fa-location-arrow"></i> Add new location</button>
   </div>
   <br>
-</div>
+  <br>
+  <div class="text-center">
+    <button type="button" class="btn btn-danger">
+      <i class="fas fa-search"></i> Search</button>
+    <br>
+    <br>
+    <span style="margin-left: -20px;">or</span>
+    <button type="button" class="btn btn-outline-secondary">
+      <i class="fas fa-location-arrow"></i> Add new location</button>
+  </div>
 
+</div>
 <app-quanan></app-quanan>

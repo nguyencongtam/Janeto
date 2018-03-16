@@ -7,6 +7,9 @@ import { QuanAn } from '../models/QuanAn';
 import { ToastrService } from 'ngx-toastr';
 import { Observer } from 'rxjs/Observer';
 import { Title } from '@angular/platform-browser';
+import { AgmCoreModule } from '@agm/core';
+import { GoogleMapAgmComponent } from '../google-map-agm/google-map-agm.component'
+
 
 @Component({
   selector: 'app-google-map',

@@ -1,0 +1,29 @@
+<div *ngIf="lat && lng">
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker *ngFor= "let marker of quanAn" [latitude]="lat" [longitude]="lng">
+      <agm-info-window>
+        <p>Bạn đang ở đây</p>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker class="location" *ngFor= "let marker of quanAn"
+    [latitude]="marker.Lat" 
+    [longitude]="marker.Lng"
+    [iconUrl]="'http://www.hentiesbaytourism.com/wp-content/uploads/2016/06/restaurant_marker.png'"
+    >
+
+      <agm-info-window>
+          <img src="assets/{{marker.Image}}" alt="" width="150" height="150">
+        <h2>{{marker.TenQuan}}</h2>
+        <p>--Địa chỉ--</p>
+        <p aria-placeholder="cái gì đó">Party: 3</p>
+        <button type="button" class="btn btn-danger" mat-raised-button (click)="openDialog()">Set party</button>
+        <button type="button" class="btn btn-success" mat-raised-button (click)="openJoinDialog(quan._id)">Join</button>
+      </agm-info-window>
+
+    </agm-marker>
+
+  </agm-map>
+
+<div>

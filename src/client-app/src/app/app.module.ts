@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuanAnService } from './providers/quan-an.service'; 
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -28,6 +29,8 @@ import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { GoogleMapAgmComponent } from './google-map-agm/google-map-agm.component';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { AppRoutingModule } from './/app-routing.module';
     ProfileComponent,
     WelcomeComponent,
     JoinDialogComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    GoogleMapAgmComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,11 @@ import { AppRoutingModule } from './/app-routing.module';
     HttpModule,
     HttpClientModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({   
+       apiKey: 'AIzaSyBtHJaP8NyKmn0-sOaMS_WJ5lj8Hu2HrI0'
+       
+    })
   ],
   entryComponents: [
     MyDialogComponent,

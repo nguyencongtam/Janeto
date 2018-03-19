@@ -11,11 +11,12 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   email: String = '';
   password: String = '';
+  isLogin: any = {};
 
   constructor(private _login: LoginService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
-    localStorage.setItem('isLogin', 'false');
+    // localStorage.setItem('isLogin', 'false');
   }
 
   signin(email: string, password: string) {
@@ -25,7 +26,8 @@ export class LoginComponent implements OnInit {
     this._login.login(this.email, this.password).subscribe(res => {
       // thanh cong
       this.toastr.success('Login successfuly');
-      localStorage.setItem('isLogin', 'true');
+      // localStorage.setItem('isLogin', 'true');
+      this._login.setIsLogin(true);
       this.router.navigate(['/home']);
     }, err => {
       console.log('error login');

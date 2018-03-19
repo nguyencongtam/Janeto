@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class LoginService {
-  isLogin: Boolean = false;
+  private  _isLogin = new BehaviorSubject<Boolean>(false);
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
@@ -24,6 +27,14 @@ export class LoginService {
       //     console.log('Error occured');
       //   }
       // );
+  }
+
+  get IsLogin () {
+    return this._isLogin.asObservable();
+  }
+
+  public setIsLogin(newValue: boolean) {
+    this._isLogin.next(newValue);
   }
 
 }

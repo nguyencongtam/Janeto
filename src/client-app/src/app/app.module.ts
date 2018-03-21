@@ -39,6 +39,7 @@ import { ChangepassComponent } from './user/changepass/changepass.component';
 import { SignoutComponent } from './user/signout/signout.component';
 import { EditComponent } from './user/edit/edit.component';
 import { SignupService } from './providers/signup.service';
+import { AddLocationComponent } from './add-location/add-location.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { SignupService } from './providers/signup.service';
     LeftComponent,
     ChangepassComponent,
     SignoutComponent,
-    EditComponent
+    EditComponent,
+    AddLocationComponent
   ],
   imports: [
     BrowserModule,

@@ -63,18 +63,7 @@ function createUser(req, res, next) {
             statusCode: 400,
             message: "Sex is required"
         })
-    } else if (!newUser.Address) {
-        next({
-            statusCode: 400,
-            message: "Address is required"
-        })
-    } else if (!newUser.Phone) {
-        next({
-            statusCode: 400,
-            message: "Phone is required"
-        })
-    }
-    else {
+    } else {
         userController.createUser(newUser)
             .then(function (user) {
                 res.json(user);

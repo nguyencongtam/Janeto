@@ -14,7 +14,7 @@ export class QuanAnService {
   nhanIdQuanAn = this.idQuanAn.asObservable();
   constructor(private http: Http) { }
 
-   get getAllQuan() {
+  get getAllQuan() {
     return this._dataQuan.asObservable();
   }
   get partyQuan()

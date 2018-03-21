@@ -1,14 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AlertModule } from 'ngx-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { QuanAnService } from './providers/quan-an.service'; 
+import { QuanAnService } from './providers/quan-an.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModel, FormsModule } from '@angular/forms';
+import { LoginService } from './providers/login.service';
+import { CommonModule } from '@angular/common';
+import { HomeguardService } from './providers/homeguard.service';
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -34,6 +38,8 @@ import { LeftComponent } from './user/left/left.component';
 import { ChangepassComponent } from './user/changepass/changepass.component';
 import { SignoutComponent } from './user/signout/signout.component';
 import { EditComponent } from './user/edit/edit.component';
+import { SignupService } from './providers/signup.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,13 +76,15 @@ import { EditComponent } from './user/edit/edit.component';
     HttpModule,
     HttpClientModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    CommonModule
   ],
   entryComponents: [
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService],
+  providers: [QuanAnService, LoginService, HomeguardService, SignupService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

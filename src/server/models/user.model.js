@@ -35,11 +35,9 @@ var userSchema = new Schema({
     },
     Address: {
         type: String,
-        required: true
     },
     Phone: {
         type: Number,
-        required: true
     },
     TypeFood: [{
         typefoodId: String

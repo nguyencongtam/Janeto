@@ -31,6 +31,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './/app-routing.module';
 import { GoogleMapAgmComponent } from './google-map-agm/google-map-agm.component';
 import { environment } from '../environments/environment.prod';
+import { InfoComponent } from './content/info/info.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { environment } from '../environments/environment.prod';
     JoinDialogComponent,
     PageNotFoundComponent,
     GoogleMapAgmComponent,
+    InfoComponent   
   ],
   imports: [
     BrowserModule,

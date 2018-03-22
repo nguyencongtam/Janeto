@@ -7,7 +7,20 @@ router.get('/', getUser);
 router.put('/:id', auth.auth(), updateUser);
 router.delete('/:id', auth.auth(), deleteUser);
 
+router.get('/finduser/:email', finUserByEmail);
+
 module.exports = router;
+
+function finUserByEmail(req, res, next) {
+    var email = req.params.email;
+    userController.finUserByEmail(email)
+        .then(function (user) {
+            res.json(user);
+        })
+        .catch(function (err) {
+            next(err);
+        })
+}
 
 function createUser(req, res, next) {
     var newUser = req.body;
@@ -25,11 +38,6 @@ function createUser(req, res, next) {
         next({
             statusCode: 400,
             message: "Password is required"
-        })
-    } else if (!newUser.Sex) {
-        next({
-            statusCode: 400,
-            message: "Sex is required"
         })
     } else {
         userController.createUser(newUser)

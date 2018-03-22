@@ -7,7 +7,18 @@ module.exports = {
     getUsers: getUsers,
     createUser: createUser,
     updateUser: updateUser,
-    deleteUser: deleteUser
+    deleteUser: deleteUser,
+    finUserByEmail: finUserByEmail
+}
+
+function finUserByEmail(email) {
+    return User.findOne({Email: email}, { password: 0 })
+    .then(function (users) {
+        return Promise.resolve(users);
+    })
+    .catch(function (err) {
+        return Promise.reject(err);
+    })
 }
 
 function createUser(newUser) {

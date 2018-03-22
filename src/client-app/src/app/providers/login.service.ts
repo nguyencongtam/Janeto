@@ -29,6 +29,14 @@ export class LoginService {
       // );
   }
 
+  loginSocial(body) {
+    return this.http.post('http://localhost:8081/users/', body, {responseType: 'text'});
+  }
+
+  findUserByEmail(email) {
+    return this.http.get(`http://localhost:8081/users/finduser/${email}`, {responseType: 'text'});
+  }
+
   get IsLogin () {
     return this._isLogin.asObservable();
   }

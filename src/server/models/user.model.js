@@ -30,8 +30,7 @@ var userSchema = new Schema({
         type: String,
     },
     Sex: {
-        type: String,
-        required: true
+        type: String
     },
     Address: {
         type: String,
@@ -39,6 +38,9 @@ var userSchema = new Schema({
     Phone: {
         type: Number,
     },
+    Provider: {
+        type: String
+    }
     // TypeFood: [{
     //     type: Schema.Types.ObjectId,
     //     ref: 'TypeFood'

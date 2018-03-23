@@ -24,7 +24,13 @@ export class HomeguardService implements CanActivate, OnInit {
       // console.log(value);
       this.isLogin = value;
     });
-    if (this.isLogin || localStorage.getItem('token') || localStorage.getItem('isLoginSocial') === 'true') {
+
+    if (localStorage.getItem('local_login') === 'true') {
+      this._login.setIsLogin(true);
+    }
+
+    if (this.isLogin || localStorage.getItem('local_login') === 'true' ||
+    localStorage.getItem('token') || localStorage.getItem('isLoginSocial') === 'true') {
       return true;
     }
     return false;

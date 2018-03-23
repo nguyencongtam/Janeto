@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class LoginService {
-  private  _isLogin = new BehaviorSubject<Boolean>(false);
+  private _isLogin = new BehaviorSubject<Boolean>(false);
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 

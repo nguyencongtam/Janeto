@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       this.toastr.success('Login successfuly', '', { positionClass: 'toast-bottom-right' });
       // localStorage.setItem('isLogin', 'true');
       this._login.setIsLogin(true);
+      localStorage.setItem('local_login', 'true');
       this.router.navigate(['/home']);
       if (this.checked) {
         localStorage.setItem('token', this.token);

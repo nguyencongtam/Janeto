@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
     this._login.IsLogin.subscribe(value => {
       this.isLogin = value;
     });
-    console.log(this.isLogin);
+    console.log('local login ' + this.isLogin);
   }
 
 }

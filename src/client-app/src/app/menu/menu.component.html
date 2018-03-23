@@ -11,19 +11,22 @@
           <i class="fa fa-plus-circle" aria-hidden="true"></i> ADD LOCATION</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" [routerLink]="['/favorite']">
           <i class="fab fa-gratipay"></i> FAVORITE</a>
       </li>
       <li class="nav-item">
         <a [routerLink]="['/listfriend']" class="nav-link">
           <i class="fa fa-address-book" aria-hidden="true"></i> FRIENDS</a>
       </li>
+      <li class="nav-item">
+        <a [routerLink]="['/contact']" class="nav-link">
+          <i class="fas fa-envelope"></i> CONTACT</a>
+      </li>
     </ul>
 
-    <p *ngIf="isLogin">
-      <span id="welcome">WELLCOME TO MY APP</span>
-    </p>
-    <button [routerLink]="['/login']" class="btn btn-outline-success my-2 my-sm-0" type="submit" *ngIf="!isLogin">Sign In</button>
-    
+    <button [routerLink]="['/profile']" class="btn btn-outline-danger my-2 my-sm-0" type="submit" *ngIf="isLogin">
+      <i class="fas fa-user-circle"></i> Profile</button>
+    <button [routerLink]="['/login']" class="btn btn-outline-success my-2 my-sm-0" type="submit" *ngIf="!isLogin"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+
   </div>
 </nav>

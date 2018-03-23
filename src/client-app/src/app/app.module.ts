@@ -41,6 +41,8 @@ import { SignoutComponent } from './user/signout/signout.component';
 import { EditComponent } from './user/edit/edit.component';
 import { SignupService } from './providers/signup.service';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { ContactComponent } from './contact/contact.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -83,7 +85,9 @@ export function getAuthServiceConfigs() {
     ChangepassComponent,
     SignoutComponent,
     EditComponent,
-    AddLocationComponent
+    AddLocationComponent,
+    ContactComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@ import 'rxjs/add/operator/catch';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  // isLogin = new BehaviorSubject<Boolean>(false);
+  //isLogin = new BehaviorSubject<Boolean>(false);
   isLogin: any;
 
   constructor(private _login: LoginService) {

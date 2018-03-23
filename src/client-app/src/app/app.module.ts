@@ -43,6 +43,7 @@ import { SignupService } from './providers/signup.service';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { ContactComponent } from './contact/contact.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { InfoUserComponent } from './user/info-user/info-user.component';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -87,7 +88,8 @@ export function getAuthServiceConfigs() {
     EditComponent,
     AddLocationComponent,
     ContactComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    InfoUserComponent
   ],
   imports: [
     BrowserModule,

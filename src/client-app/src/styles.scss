@@ -1,2 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "~@angular/material/prebuilt-themes/indigo-pink.css"
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ngx-toastr/toastr";
+// :host {
+//     height: 100%;
+// }
+// or import a bootstrap 4 alert styled design (SASS ONLY) 
+// should be after your bootstrap imports, it uses bs4 variables 

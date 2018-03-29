@@ -24,42 +24,25 @@ export class GoogleMapComponent implements OnInit {
   quanAn: any = {};
   map: google.maps.Map;
   locationUser: google.maps.Marker;
-  // markerRestaurant;
-  // infoWindow: google.maps.InfoWindow;
+  setCenter: google.maps.Circle;
   constructor(
     private _quanAnService: QuanAnService,
-    // private toastr: ToastrService
   ) {
 
   }
 
   ngOnInit() {
-    this.getQuanAn();
-    // this.ToastrService.success('Thanh cong',this._dataService.getQuanAn());
-    // var quanAn = new Object;
-    // quanAn =  this._dataService.getQuanAn(); 
-
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.ngLocationUser(position.coords.latitude, position.coords.longitude);
-        this.ngInfoWindow();
       });
-
     }
     else {
       alert("Trình duyệt này không hỗ trợ");
     }
-    // this.ngInfoWindow();
   }
 
-  getQuanAn() {
-    this._quanAnService.getDataQuan();
-    this._quanAnService.getAllQuan.subscribe((data) => {
-      this.quanAn = data;
-      console.log(data);
-      return this.quanAn;
-    })
-  }
+
 
 
   ngLocationUser(latitude, longitude) {
@@ -77,41 +60,12 @@ export class GoogleMapComponent implements OnInit {
 
   }
 
-  ngInfoWindow() {
-    var location = [];
-    // var infoWindow = [];
-    for (var i = 0; i < this.quanAn.length; i++) {
-      location[i] = { lat: this.quanAn[i].Iat, lng: this.quanAn[i].Lng }
-      console.log(location[i]);
+
+    ngGetCenter()
+    {
+      var lat = this.setCenter.getCenter();
+      console.log(lat);
     }
 
-      // }
-      // var locations = [
-      //   [this.quanAn[0].lat,this.quanAn[0].lng, 'Point 1', '<p>This is Point 1</p>'],
-      //   [this.quanAn[1].lat,this.quanAn[1].lng, 'Point 2', '<p>This is Point 2</p>'],
-      //   [this.quanAn[2].lat,this.quanAn[2].lng, 'Point 3', '<p>This is Point 3</p>']
-      // ];
-
-      for (var i = 0; i < this.quanAn.length; i++) {
-        var markerRestaurant = new google.maps.Marker({
-          position: location[i],
-          map: this.map,
-          icon: ({
-            url: 'http://www.hentiesbaytourism.com/wp-content/uploads/2016/06/restaurant_marker.png',
-            scaledSize: new google.maps.Size(50, 50)
-          })
-        });
-        var conentString = 'Hello';
-        var infoWindow = new google.maps.InfoWindow({
-          content: conentString
-        });
-        google.maps.event.addListener(markerRestaurant, 'click', function () {
-          // infoWindow.setContent('{{this.QuanAn.lat}}')
-          infoWindow.open(this.map, this);
-        });
-
-      }
-
-    }
   }
 

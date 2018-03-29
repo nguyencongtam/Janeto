@@ -15,6 +15,7 @@ exports.auth = function () {
                     });
                 } else {
                     var email = decodedData.Email;
+                    req.emailUser = email;
 
                     authController.checkAuth({
                         email: decodedData.Email

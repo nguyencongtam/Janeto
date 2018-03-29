@@ -35,20 +35,16 @@ var userSchema = new Schema({
     },
     Address: {
         type: String,
-        required: true
     },
     Phone: {
         type: Number,
-        required: true
     },
-    // TypeFood: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'TypeFood'
-    // }],
-    // Friend: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Friend'
-    // }]
+    TypeFood: [{
+        typefoodId: String
+    }],
+    Friend: [{
+        friendId: String
+    }]
 });
 
 userSchema.index({ Name: 'text', Phone: 'text' });

@@ -9,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuanAnService } from './providers/quan-an.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModel, FormsModule } from '@angular/forms';
+import { NgModel, FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { LoginService } from './providers/login.service';
 import { CommonModule } from '@angular/common';
 import { HomeguardService } from './providers/homeguard.service';
@@ -40,6 +40,7 @@ import { SignoutComponent } from './user/signout/signout.component';
 import { EditComponent } from './user/edit/edit.component';
 import { SignupService } from './providers/signup.service';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { GetprofileService } from './providers/getprofile.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
     WelcomeComponent,
     JoinDialogComponent,
     PageNotFoundComponent,
-    InfoComponent,   
+    InfoComponent,
     UserComponent,
     LeftComponent,
     ChangepassComponent,
@@ -80,13 +81,14 @@ import { AddLocationComponent } from './add-location/add-location.component';
     HttpModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService, LoginService, HomeguardService, SignupService],
+  providers: [QuanAnService, LoginService, HomeguardService, SignupService, GetprofileService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

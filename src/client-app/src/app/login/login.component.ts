@@ -16,15 +16,14 @@ export class LoginComponent implements OnInit {
   constructor(private _login: LoginService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
-    // localStorage.setItem('isLogin', 'false');
   }
 
   signin(email: string, password: string) {
-    // console.log(this.email = email);
-    // console.log(this.password = password);
+    localStorage.setItem('email', email);
 
     this._login.login(this.email, this.password).subscribe(res => {
       // thanh cong
+      localStorage.setItem('token', res);
       this.toastr.success('Login successfuly');
       // localStorage.setItem('isLogin', 'true');
       this._login.setIsLogin(true);

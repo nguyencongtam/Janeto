@@ -39,6 +39,12 @@ var userSchema = new Schema({
     Phone: {
         type: Number,
     },
+    FavoriteFood: {
+        type: String
+    },
+    Birthday: {
+        type: String
+    },
     TypeFood: [{
         typefoodId: String
     }],

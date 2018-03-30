@@ -6,60 +6,73 @@
     <div class="row text-center">
       <div class="col-md-8 col-md-push-2">
         <div class="row">
-          <div class="left col-md-6">
-            <p>Name:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>Ha Pham</p>
-          </div>
-          <div class="left col-md-6">
-            <p>Email:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>phamthaiha.vn@gmai.com</p>
-          </div>
-          <div class="left col-md-6">
-            <p>Address:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>Hoc Vien Cong Nghe BCVT</p>
-          </div>
-          <div class="left col-md-6">
-            <p>Phone:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>0949022096</p>
-          </div>
-          <div class="left col-md-6">
-            <p>Rate:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>9/10</p>
-          </div>
-          <div class="left col-md-6">
-            <p>Sex:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>Female</p>
-          </div>
-          <div class="left col-md-6">
-            <p>Birth day:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>22/08/1996</p>
-          </div>
-          <div class="left col-md-6">
-            <p>Favorite Food:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>Chicken, Crab...</p>
-          </div>
-          <div class="left col-md-6">
-            <p>More detail:</p>
-          </div>
-          <div class="right col-md-6">
-            <p>None</p>
-          </div>
+          <form class="form-group" #formProfile="ngForm" (ngSubmit)="update(formProfile)">
+            <div class="left col-md-6">
+              <p>Name:</p>
+            </div>
+            <div class="right col-md-6">
+              <!-- <p>{{ dataUser.Name }}</p> -->
+              <input type="text" id="name" name="Name" ngModel="{{ dataUser.Name}}">
+            </div>
+            <div class="left col-md-6">
+              <p>Email:</p>
+            </div>
+            <div class="right col-md-6">
+              <input type="email" name="Email" ngModel="{{ dataUser.Email }}">
+            </div>
+            <div class="left col-md-6">
+              <p>Address:</p>
+            </div>
+            <div class="right col-md-6">
+              <input type="text" name="Address" ngModel="{{ dataUser.Address }}">
+            </div>
+            <div class="left col-md-6">
+              <p>Phone:</p>
+            </div>
+            <div class="right col-md-6">
+              <input type="text" name="Phone" ngModel="{{ dataUser.Phone }}">
+            </div>
+            <div class="left col-md-6">
+              <p>Rate:</p>
+            </div>
+            <div class="right col-md-6">
+              <p>No Infomation</p>
+            </div>
+            <div class="left col-md-6">
+              <p>Sex:</p>
+            </div>
+
+              <select name="Sex" ngModel="{{dataUser.Sex}}" value="{{dataUser.Sex}}" style="width: 180px;">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+
+            <div class="left col-md-6">
+              <p>Birth day:</p>
+            </div>
+            <div class="right col-md-6">
+              <input type="date" name="Birthday" ngModel="{{ dataUser.Birthday }}">
+            </div>
+            <div class="left col-md-6">
+              <p>Favorite Food:</p>
+            </div>
+            <div class="right col-md-6">
+              <input type="text" name="FavoriteFood" ngModel="{{ dataUser.FavoriteFood }}">
+            </div>
+            <div class="left col-md-6">
+              <p>More detail:</p>
+            </div>
+            <div class="right col-md-6">
+              <input type="text" name="Detail" ngModel="{{ dataUser.Detail }}">
+            </div>
+            <div class="left col-md-6">
+            </div>
+            <div class="right col-md-6" style="margin-top: 50px;">
+              <button type="submit" class="btn btn-primary" style="width: 180px;">Update Infomation</button>
+            </div>
+          </form>
+
+          <pre>{{ formProfile.value | json }}</pre>
 
         </div>
       </div>

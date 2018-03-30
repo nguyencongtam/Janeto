@@ -9,7 +9,8 @@ module.exports = {
     updateUser: updateUser,
     deleteUser: deleteUser,
     saveTypeFood: saveTypeFood,
-    addFriends: addFriends
+    addFriends: addFriends,
+    getUserByEmail: getUserByEmail
 }
 
 function createUser(newUser) {
@@ -106,6 +107,16 @@ function addFriends(friendId) {
         })
         .catch(function (err) {
             console.log('loi them user');
+            return Promise.reject(err);
+        })
+}
+
+function getUserByEmail(userEmail) {
+    return User.findOne({ Email : userEmail}, { password: 0 })
+        .then(function (users) {
+            return Promise.resolve(users);
+        })
+        .catch(function (err) {
             return Promise.reject(err);
         })
 }

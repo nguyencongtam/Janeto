@@ -33,8 +33,7 @@ router.get('/', getUser);
 router.put('/:id', auth.auth(), updateUser);
 router.delete('/:id', auth.auth(), deleteUser);
 
-
-//  router.post('/login', login);
+router.get('/:email', getUserByEmail);
 
 router.post('/savetypefood/:id', /*auth.auth(),*/ saveTypeFood);
 router.post('/addfriend/:id', addFriend);
@@ -151,4 +150,15 @@ function addFriend(req, res, next) {
     })
 
     
+}
+
+function getUserByEmail(req, res, next) {
+    userEmail = req.params.email;
+    userController.getUserByEmail(userEmail)
+        .then(function (users) {
+            res.send(users);
+        })
+        .catch(function (err) {
+            next(err);
+        })
 }

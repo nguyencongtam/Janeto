@@ -56,7 +56,7 @@ var quananSchema = new Schema({
         type: Number,
         required: true
     },
-    MinPrice: {
+    MaxPrice: {
         type: Number,   
         required: true
     },

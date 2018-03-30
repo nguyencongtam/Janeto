@@ -1,27 +1,24 @@
+.top {
+  margin-left: 10px; 
+}
 .image {
   border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid #c0b6b626;
+  margin-top: 12px;
+  margin-left: 30px;
 }
-
-.info {
-  font-size: 13px;
-  .name p {
-    font-size: 15px;
-    font-weight: 500;
-  }
-
+.boss {
+  background-color: #f5f5f5;
+  text-align: center;
+  height: 100vh;
+  margin-top: -53px;
 }
-
-.friend {
-  border-bottom: 1px solid #eaeaea;
-  padding: 10px;
-  
+hr {
+  width: 80%;
+  text-align: center;
+  margin-left: 15px;
 }
-
 .titile {
-    font-size: 16px;
-    font-weight: 700;
-}
-a {
-  font-size: 20px;
+  padding-top: 76px;
+  padding-bottom: 18px;
 }

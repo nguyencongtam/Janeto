@@ -5,10 +5,16 @@
   }
 .left {
     text-align: left;
+    p {
+        font-weight: 500;
+    }
 }
 .right {
     text-align: left;
 }  
 .info {
     margin-left: 25%;
+}
+:host {
+    margin-left: 30px;
 }

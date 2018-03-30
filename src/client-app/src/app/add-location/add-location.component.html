@@ -1,3 +1,28 @@
-<p>
-  add-location works!
-</p>
+<div *ngIf="lat && lng">
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"
+  (mapClick)="mapClicked($event)">
+
+    <agm-marker [latitude]="lat" [longitude]="lng">
+      <agm-info-window>
+        <p>Bạn đang ở đây</p>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker 
+    [latitude]="setLat"
+    [longitude]="setLng">
+  <agm-info-window>
+    <strong>InfoWindow content</strong>
+  </agm-info-window>
+
+</agm-marker>
+
+  </agm-map>
+<div>
+
+
+<div >
+    <button type="button" class="btn btn-outline-secondary" (click)="ngGetCenter()">
+        <i class="fas fa-location-arrow"></i> Add new location</button>
+</div>

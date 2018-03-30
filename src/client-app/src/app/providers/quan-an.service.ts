@@ -25,8 +25,6 @@ export class QuanAnService {
   getDataQuan(): Promise<any> {
     return this.http.get(this.urlGetDataQuan).toPromise().then(response => {
       this._dataQuan.next(response.json());
-      console.log("getDataQuan: "+ response.json());
-      
       return response.json();
     }).catch(err => console.log('loi lay url get'));
   }
@@ -34,8 +32,7 @@ export class QuanAnService {
    getPartyQuanAn(id) {
      try{
       return this.http.get(this.urlGetDataQuan+'/'+id).toPromise().then(response => {
-        this._partyQuan.next(response.json());
-        console.log("data service: " + response.json()) ;       
+        this._partyQuan.next(response.json());   
         return response.json();
       }).catch(err => console.log('loi lay url get: ' + err));     
      }catch(err){console.log(err);

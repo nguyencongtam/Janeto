@@ -8,15 +8,16 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { InfoComponent } from './content/info/info.component'
 import { HomeguardService } from './providers/homeguard.service';
 import { AddLocationComponent } from './add-location/add-location.component'
+import { GoogleMapComponent } from './google-map/google-map.component';
 
 const routes: Routes = [
   {path: 'home', component: ViewHomeComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'listfriend', component: FriendComponent},
   {path: 'info', component: InfoComponent},
-  {path: 'addlocation', component: AddLocationComponent, canActivate: [HomeguardService]},
+  {path: 'addlocation', component: AddLocationComponent/*, canActivate: [HomeguardService]*/},
   {path: '**', component: PageNotFoundComponent}
 ];
 

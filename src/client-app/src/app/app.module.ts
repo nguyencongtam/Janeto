@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuanAnService } from './providers/quan-an.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
 import { NgModel, FormsModule } from '@angular/forms';
 import { LoginService } from './providers/login.service';
 import { CommonModule } from '@angular/common';
@@ -33,6 +34,8 @@ import { ProfileComponent } from './friend/profile/profile.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { GoogleMapAgmComponent } from './google-map-agm/google-map-agm.component';
+import { environment } from '../environments/environment.prod';
 import { InfoComponent } from './content/info/info.component';
 import { UserComponent } from './user/user.component';
 import { LeftComponent } from './user/left/left.component';
@@ -77,6 +80,7 @@ export function getAuthServiceConfigs() {
     WelcomeComponent,
     JoinDialogComponent,
     PageNotFoundComponent,
+    GoogleMapAgmComponent,
     InfoComponent,   
     UserComponent,
     LeftComponent,
@@ -97,6 +101,10 @@ export function getAuthServiceConfigs() {
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
+    AgmCoreModule.forRoot({   
+       apiKey: 'AIzaSyBtHJaP8NyKmn0-sOaMS_WJ5lj8Hu2HrI0'
+       
+    }),
     FormsModule,
     CommonModule,
     SocialLoginModule

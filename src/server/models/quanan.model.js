@@ -30,7 +30,7 @@ var quananSchema = new Schema({
     Stat: {
         type: String,
     },
-    Iat: {
+    Lat: {
         type: Number,
         required: true
     },

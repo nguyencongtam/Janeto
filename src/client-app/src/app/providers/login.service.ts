@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class LoginService {
-  private  _isLogin = new BehaviorSubject<Boolean>(false);
+  private _isLogin = new BehaviorSubject<Boolean>(false);
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
@@ -27,6 +27,14 @@ export class LoginService {
       //     console.log('Error occured');
       //   }
       // );
+  }
+
+  loginSocial(body) {
+    return this.http.post('http://localhost:8081/users/', body, {responseType: 'text'});
+  }
+
+  findUserByEmail(email) {
+    return this.http.get(`http://localhost:8081/users/finduser/${email}`, {responseType: 'text'});
   }
 
   get IsLogin () {

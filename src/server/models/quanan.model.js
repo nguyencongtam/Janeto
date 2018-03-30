@@ -30,7 +30,7 @@ var quananSchema = new Schema({
     Stat: {
         type: String,
     },
-    Iat: {
+    Lat: {
         type: Number,
         required: true
     },
@@ -56,7 +56,7 @@ var quananSchema = new Schema({
         type: Number,
         required: true
     },
-    MinPrice: {
+    MaxPrice: {
         type: Number,   
         required: true
     },

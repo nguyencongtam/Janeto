@@ -13,6 +13,7 @@ import { NgModel, FormsModule } from '@angular/forms';
 import { LoginService } from './providers/login.service';
 import { CommonModule } from '@angular/common';
 import { HomeguardService } from './providers/homeguard.service';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -40,6 +41,23 @@ import { SignoutComponent } from './user/signout/signout.component';
 import { EditComponent } from './user/edit/edit.component';
 import { SignupService } from './providers/signup.service';
 import { AddLocationComponent } from './add-location/add-location.component';
+
+// Configs
+export function getAuthServiceConfigs() {
+  const config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('393343071138921')
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider('432469042041-3o2vl8f34jhqhbeami16vnkc8j28o6dp.apps.googleusercontent.com')
+        },
+      ]
+    );
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -80,13 +98,17 @@ import { AddLocationComponent } from './add-location/add-location.component';
     HttpModule,
     AppRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    SocialLoginModule
   ],
   entryComponents: [
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService, LoginService, HomeguardService, SignupService],
+  providers: [QuanAnService, LoginService, HomeguardService, SignupService, {
+    provide: AuthServiceConfig,
+    useFactory: getAuthServiceConfigs
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

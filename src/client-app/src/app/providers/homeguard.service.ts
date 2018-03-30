@@ -12,22 +12,25 @@ export class HomeguardService implements CanActivate, OnInit {
   isLogin: any;
 
   ngOnInit() {
-    // localStorage.setItem('isLogin', 'false');
+
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // this.isLogin = localStorage.getItem('isLogin');
-    // console.log(this.isLogin);
-    // if (this.isLogin === 'true') {
-    //    return true;
-    // }
-    // return false;
+    if (localStorage.getItem('isLoginSocial') === 'true') {
+      this._login.setIsLogin(true);
+    }
 
     this._login.IsLogin.subscribe(value => {
       // console.log(value);
       this.isLogin = value;
     });
-    if (this.isLogin) {
+
+    if (localStorage.getItem('local_login') === 'true') {
+      this._login.setIsLogin(true);
+    }
+
+    if (this.isLogin || localStorage.getItem('local_login') === 'true' ||
+    localStorage.getItem('token') || localStorage.getItem('isLoginSocial') === 'true') {
       return true;
     }
     return false;

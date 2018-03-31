@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   email: String = '';
   password: String = '';
   isLogin: any = {};
-  checked: Boolean = false;
   token: any;
 
   constructor(private _login: LoginService, private toastr: ToastrService, private router: Router,
@@ -36,25 +35,17 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  check() {
-    this.checked = !this.checked;
-    // console.log(this.checked);
-  }
-
   signin(email: string, password: string) {
-    localStorage.setItem('email', email);
+    localStorage.setItem('email', email); // find user by email
 
     this._login.login(this.email, this.password).subscribe(res => {
       // thanh cong
-      localStorage.setItem('token', res);
+      localStorage.setItem('token', res); // save state logined
       this.token = res;
       this.toastr.success('Login successfuly', '', { positionClass: 'toast-bottom-right' });
       this._login.setIsLogin(true);
-      localStorage.setItem('local_login', 'true');
+      localStorage.setItem('local_login', 'true'); // save state logined for menu subcribe and guard
       this.router.navigate(['/home']);
-      if (this.checked) {
-        localStorage.setItem('token', this.token);
-      }
     }, err => {
       console.log('error login');
       this.toastr.error('Error to login, please check your infomation', '', { positionClass: 'toast-bottom-right' });
@@ -130,9 +121,6 @@ export class LoginComponent implements OnInit {
       this._login.setIsLogin(true);
       localStorage.setItem('isLoginSocial', 'true');
       this.router.navigate(['/home']);
-      if (this.checked) {
-        localStorage.setItem('token', this.token);
-      }
     }, err => {
       console.log(err);
       this.toastr.error('Error to login', 'Error social login', { positionClass: 'toast-bottom-right' });

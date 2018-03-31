@@ -2,11 +2,22 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { LoginService } from './login.service';
 import { RequestMethod } from '@angular/http';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class GetprofileService {
   emailUser: string;
+  private disable = new BehaviorSubject<Boolean>(false);
+
   constructor(private http: Http, private _login: LoginService) {   }
+
+  get Disable () {
+    return this.disable.asObservable();
+  }
+
+  public setDisable(newValue: boolean) {
+    this.disable.next(newValue);
+  }
 
   getProfile() {
     this.emailUser = localStorage.getItem('email');

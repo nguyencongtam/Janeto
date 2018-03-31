@@ -21,6 +21,10 @@ export class MenuComponent implements OnInit {
     this._login.IsLogin.subscribe(value => {
       this.isLogin = value;
     });
+
+    if (localStorage.getItem('token')) {
+      this.isLogin = true;
+    }
     console.log('local login ' + this.isLogin);
   }
 

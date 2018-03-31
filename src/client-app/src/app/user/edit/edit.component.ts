@@ -12,10 +12,19 @@ export class EditComponent implements OnInit {
   dataUser: any[];
   sex: boolean;
   userId: string;
+  disable: Boolean = false; // false: hide, true: show
 
   constructor(private _getprofile: GetprofileService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.getProfile();
+
+    this._getprofile.Disable.subscribe(value => {
+      this.disable = value;
+    });
+  }
+
+  getProfile() {
     this._getprofile.getProfile().then(data => {
       this.dataUser = data;
       this.userId = data._id;
@@ -30,7 +39,11 @@ export class EditComponent implements OnInit {
   update(form: NgForm) {
     console.log(form.value);
     this._getprofile.update(this.userId, form.value).then(data => {
-      this.toastr.success('Update Info succsessfully');
+      this.toastr.success('Update Info succsessfully', '', { positionClass: 'toast-bottom-right' });
     });
+  }
+
+  cancel() {
+    this._getprofile.setDisable(false);
   }
 }

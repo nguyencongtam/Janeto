@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetprofileService } from '../../providers/getprofile.service';
 import { NgForm  } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit',
@@ -14,7 +15,12 @@ export class EditComponent implements OnInit {
   userId: string;
   disable: Boolean = false; // false: hide, true: show
 
-  constructor(private _getprofile: GetprofileService, private toastr: ToastrService) { }
+  selectedFile: File = null;
+
+  constructor(private _getprofile: GetprofileService,
+    private toastr: ToastrService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
     this.getProfile();
@@ -36,14 +42,28 @@ export class EditComponent implements OnInit {
     });
   }
 
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+    console.log(this.selectedFile);
+
+    const fd: any = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+    const URL = 'http://localhost:8081/upload/' + this.userId;
+    this.http.post(URL, fd).subscribe(res => {
+      console.log(res);
+    });
+  }
+
   update(form: NgForm) {
     console.log(form.value);
     this._getprofile.update(this.userId, form.value).then(data => {
       this.toastr.success('Update Info succsessfully', '', { positionClass: 'toast-bottom-right' });
+      this._getprofile.setDisable(false);
     });
   }
 
   cancel() {
     this._getprofile.setDisable(false);
   }
+
 }

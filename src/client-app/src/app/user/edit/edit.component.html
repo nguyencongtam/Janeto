@@ -1,11 +1,13 @@
+<form class="form-group" #formProfile="ngForm" (ngSubmit)="update(formProfile)">
 <div class="text-center">
-  <img class="image " src="assets/images.png" alt="" width="120" height="120">
+  <img class="image" *ngIf="dataUser.Image!='' " src="assets/{{dataUser.Image}}" alt="" width="120" height="120">
+  <img class="image" *ngIf="dataUser.Image==='' " src="assets/images.png" alt="" width="120" height="120">
   <div class="choose_file">
-    <span>Change Avatar</span>
-    <input name="Select File" type="file" />
+    <span>Choose Avatar</span>
+    <input name="" type="file" (change)="onFileSelected($event)"/>
   </div>
 </div>
-<form class="form-group" #formProfile="ngForm" (ngSubmit)="update(formProfile)">
+
   <div class="info ">
     <div class="container">
       <div class="row text-center">

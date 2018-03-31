@@ -34,7 +34,7 @@ export class GetprofileService {
       headers: headers,
       method: RequestMethod.Put
     });
-    console.log(localStorage.getItem('token'));
+    // console.log(localStorage.getItem('token'));
 
     return this.http.put(URL, body, {headers: headers})
         .toPromise()

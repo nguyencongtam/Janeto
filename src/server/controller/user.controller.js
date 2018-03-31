@@ -11,7 +11,8 @@ module.exports = {
     saveTypeFood: saveTypeFood,
     addFriends: addFriends,
     getUserByEmail: getUserByEmail,
-    finUserByEmail: finUserByEmail
+    finUserByEmail: finUserByEmail,
+    updateImage: updateImage
 }
 
 function finUserByEmail(email) {
@@ -130,4 +131,8 @@ function getUserByEmail(userEmail) {
         .catch(function (err) {
             return Promise.reject(err);
         })
+}
+
+function updateImage(id, image) {
+    return User.findByIdAndUpdate(id , { Image: image })
 }

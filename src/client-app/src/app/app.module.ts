@@ -43,6 +43,7 @@ import { SignoutComponent } from './user/signout/signout.component';
 import { EditComponent } from './user/edit/edit.component';
 import { SignupService } from './providers/signup.service';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { TypeFoodService } from './providers/type-food.service';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,7 @@ import { AddLocationComponent } from './add-location/add-location.component';
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService, LoginService, HomeguardService, SignupService],
+  providers: [QuanAnService, LoginService, HomeguardService, SignupService, TypeFoodService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

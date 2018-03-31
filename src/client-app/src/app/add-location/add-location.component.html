@@ -1,5 +1,4 @@
 <div *ngIf="lat && lng">
-
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom"
   (mapClick)="mapClicked($event)">
 
@@ -13,16 +12,32 @@
     [latitude]="setLat"
     [longitude]="setLng">
   <agm-info-window>
-    <strong>InfoWindow content</strong>
+    <strong>InfoWindow content1</strong>
   </agm-info-window>
-
 </agm-marker>
 
   </agm-map>
 <div>
 
+  <div class="row">
+    <span>Tên quán</span>
+    <input type="text" id="find" class="form-control" placeholder="Search something.." required autofocus [(ngModel)]="tenQuan" name="tenQuan">
+    
+    <div class="col-sm-6 col-md-4 col-lg-4">
+        <span>Type</span>
+        <select class="form-control" style="height: 46px;">
+          <option value="volvo">Restaurent</option>
+          <option value="saab">Store</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select> 
+      </div>
 
-<div >
-    <button type="button" class="btn btn-outline-secondary" (click)="ngGetCenter()">
+  </div>
+
+<div class="row">
+    <button type="button" class="btn btn-outline-secondary" (click)="ngPostDataQuanAn(tenQuan, setLat, setLng)">
         <i class="fas fa-location-arrow"></i> Add new location</button>
+        <!-- <button type="button" class="btn btn-outline-secondary" (click)="ngGetCenter()">
+          <i class="fas fa-location-arrow"></i>Làm mới</button> -->
 </div>

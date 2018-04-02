@@ -18,25 +18,25 @@ function createQuanAn(req, res, next) {
             message: "name is required"
         })
     } 
-    else if (!newQuanAn.Quan) {
-        next({
-            statusCode: 401,
-            message: "District is required"
-        })
-    } 
-    else if (!newQuanAn.ThanhPho) {
-        next({
-            statusCode: 402,
-            message: "City is required"
-        })
-    }
-    else if (!newQuanAn.DatNuoc) {
-        next({
-            statusCode: 403,
-            message: "Country is required"
-        })
-    } 
-    else if (!newQuanAn.Iat) {
+    // else if (!newQuanAn.Quan) {
+    //     next({
+    //         statusCode: 401,
+    //         message: "District is required"
+    //     })
+    // } 
+    // else if (!newQuanAn.ThanhPho) {
+    //     next({
+    //         statusCode: 402,
+    //         message: "City is required"
+    //     })
+    // }
+    // else if (!newQuanAn.DatNuoc) {
+    //     next({
+    //         statusCode: 403,
+    //         message: "Country is required"
+    //     })
+    // } 
+    else if (!newQuanAn.Lat) {
         next({
             statusCode: 405,
             message: "iat is required"
@@ -47,36 +47,36 @@ function createQuanAn(req, res, next) {
             statusCode: 406,
             message: "ing is required"
         })
-    }
-    else if (!newQuanAn.MaxPrice) {
-        next({
-            statusCode: 407,
-            message: "MaxPrice is required"
-        })
-    }
-    else if (!newQuanAn.MinPrice) {
-        next({
-            statusCode: 408,
-            message: "MinPrice is required"
-        })
-    }
-    else if (!newQuanAn.TimeStart) {
-        next({
-            statusCode: 409,
-            message: "TimeStart is required"
-        })
-    }
-    else if (!newQuanAn.TimeEnd) {
-        next({
-            statusCode: 410,
-            message: "TimeEnd is required"
-        })
-    }
-    else if (!newQuanAn.Rate) {
-        next({
-            statusCode: 411,
-            message: "Rate is required"
-        })
+    // }
+    // else if (!newQuanAn.MaxPrice) {
+    //     next({
+    //         statusCode: 407,
+    //         message: "MaxPrice is required"
+    //     })
+    // }
+    // else if (!newQuanAn.MinPrice) {
+    //     next({
+    //         statusCode: 408,
+    //         message: "MinPrice is required"
+    //     })
+    // }
+    // else if (!newQuanAn.TimeStart) {
+    //     next({
+    //         statusCode: 409,
+    //         message: "TimeStart is required"
+    //     })
+    // }
+    // else if (!newQuanAn.TimeEnd) {
+    //     next({
+    //         statusCode: 410,
+    //         message: "TimeEnd is required"
+    //     })
+    // }
+    // else if (!newQuanAn.Rate) {
+    //     next({
+    //         statusCode: 411,
+    //         message: "Rate is required"
+    //     })
     }
     else {
         quananController.createQuanAn(newQuanAn)

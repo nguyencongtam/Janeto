@@ -15,6 +15,7 @@ import { LoginService } from './providers/login.service';
 import { CommonModule } from '@angular/common';
 import { HomeguardService } from './providers/homeguard.service';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angular5-social-login';
+import { CKEditorModule } from 'ng2-ckeditor'
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -46,6 +47,7 @@ import { SignupService } from './providers/signup.service';
 import { AddLocationComponent } from './add-location/add-location.component';
 import { ContactComponent } from './contact/contact.component';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { TypeFoodService } from './providers/type-food.service';
 
 // Configs
 export function getAuthServiceConfigs() {
@@ -63,6 +65,7 @@ export function getAuthServiceConfigs() {
     );
   return config;
 }
+
 
 @NgModule({
   declarations: [
@@ -111,16 +114,17 @@ export function getAuthServiceConfigs() {
     }),
     FormsModule,
     CommonModule,
-    SocialLoginModule
+    SocialLoginModule,
+    CKEditorModule
   ],
   entryComponents: [
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService, LoginService, HomeguardService, SignupService, {
+  providers: [QuanAnService, LoginService, HomeguardService, SignupService, TypeFoodService, {
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
   }],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

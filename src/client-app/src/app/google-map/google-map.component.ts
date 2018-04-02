@@ -2,7 +2,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { } from '@types/googlemaps';
 import { QuanAnService } from '../providers/quan-an.service'
-import { QuanAn } from '../models/QuanAn';
 // import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observer } from 'rxjs/Observer';
@@ -19,7 +18,6 @@ import { GoogleMapAgmComponent } from '../google-map-agm/google-map-agm.componen
 export class GoogleMapComponent implements OnInit {
   @ViewChild('gmap') gmapElement: any;
   tittle = 'hello';
-  public _QuanAn: QuanAn;
   // mapProp;
   quanAn: any = {};
   map: google.maps.Map;

@@ -2,33 +2,32 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var quananSchema = new Schema({
-    // _id: {
-    //     type: String
-    // },
     TenQuan: {
         type: String,
         required: true
     },
-    Quan: {
+    // TypeFood: {
+    //     type: String,
+    //     required: true
+    // },
+    // MinPrices: {
+    //     type: String,
+    //     required: true
+    // },
+    // MaxPrices: {
+    //     type: String,
+    //     required: true
+    // },
+    TimeStart: {
         type: String,
         required: true
     },
-    ThanhPho: {
+    TimeEnd: {
         type: String,
         required: true
     },
-    DatNuoc: {
-        type: String,
-        required: true
-    },
-    MoTa: {
-        type: String,
-    },
-    Image: {
-        type: String,
-    },
-    Stat: {
-        type: String,
+    Address: {
+        type: String
     },
     Lat: {
         type: Number,
@@ -38,44 +37,30 @@ var quananSchema = new Schema({
         type: Number,
         required: true
     },
-    Party: {
-        _id: {
-            type: String,
-            required: true
-        },
-        Leader: {
-            type: String,
-            required: true
-        },
-        Title: {
-            type: String,
-            required: true
-        },
-    },
-    MinPrice: {
-        type: Number,
-        required: true
-    },
-    MaxPrice: {
-        type: Number,   
-        required: true
-    },
-    TimeStart: {
-        type: Number,
-        required: true
-    },
-    TimeEnd: {
-        type: Number,
-        required: true
-    },
-    DateTime: {
-        type: Date,
-        //required: true
-    },
-    Rate: {
-        type: Number,
-        required: true
-    }, 
+    Detail: {
+        type: String
+    }
+    // Image: {
+    //     type: String
+    // }
+    // Party: {
+    //     _id: {
+    //         type: String,
+    //         required: true
+    //     },
+    //     Leader: {
+    //         type: String,
+    //         required: true
+    //     },
+    //     Title: {
+    //         type: String,
+    //         required: true
+    //     },
+    // },
+    // Rate: {
+    //     type: Number,
+    //     required: true
+    // }, 
 });
 
 quananSchema.index({ TenQuan: 'text' });

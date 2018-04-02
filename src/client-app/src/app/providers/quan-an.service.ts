@@ -37,7 +37,18 @@ export class QuanAnService {
       }).catch(err => console.log('loi lay url get: ' + err));     
      }catch(err){console.log(err);
      }
+  }
 
+  postQuanAn(tenQuan, /*minPrice, maxPrice, */timeStart, timeEnd, Address, lat, lng, detail/*, image*/){
+    return this.http.post(this.urlGetDataQuan, {
+      TenQuan: tenQuan,
+      TimeStart:timeStart,
+      TimeEnd: timeEnd,
+      Address: Address,
+      Detail: detail,
+      Lat: lat,
+      Lng: lng
+    })
   }
 
   shareIdQuanAn(data: String)

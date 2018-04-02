@@ -8,12 +8,9 @@
       </div>
       <div class="col-sm-6 col-md-4 col-lg-4">
         <span>Type</span>
-        <select class="form-control" style="height: 46px;">
-          <option value="volvo">Restaurent</option>
-          <option value="saab">Store</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
+        <select  class="form-control" style="height: 46px;">
+            <option *ngFor='let type of typeFood' value="{{type._id}}">{{type.Name}}</option>
+        </select> 
       </div>
       <div class="col-sm-6 col-md-4 col-lg-4">
         <span>People join</span>

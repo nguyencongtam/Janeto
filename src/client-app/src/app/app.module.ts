@@ -14,6 +14,7 @@ import { NgModel, FormsModule } from '@angular/forms';
 import { LoginService } from './providers/login.service';
 import { CommonModule } from '@angular/common';
 import { HomeguardService } from './providers/homeguard.service';
+import { CKEditorModule } from 'ng2-ckeditor'
 
 import { AppComponent } from './app.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
@@ -89,7 +90,8 @@ import { TypeFoodService } from './providers/type-food.service';
        
     }),
     FormsModule,
-    CommonModule
+    CommonModule,
+    CKEditorModule
   ],
   entryComponents: [
     MyDialogComponent,

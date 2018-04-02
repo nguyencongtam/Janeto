@@ -1,8 +1,8 @@
 export interface IQuan {
     _id: string,
     TenQuan: string,
-    MinPrices: string,
-    MaxPrices: string,
+    // MinPrices: string,
+    // MaxPrices: string,
     TimeStart: string,
     TimeEnd: string,
     Address: string,

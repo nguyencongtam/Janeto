@@ -6,6 +6,10 @@ var quananSchema = new Schema({
         type: String,
         required: true
     },
+    // TypeFood: {
+    //     type: String,
+    //     required: true
+    // },
     // MinPrices: {
     //     type: String,
     //     required: true
@@ -14,17 +18,17 @@ var quananSchema = new Schema({
     //     type: String,
     //     required: true
     // },
-    // TimeStart: {
-    //     type: String,
-    //     required: true
-    // },
-    // TimeEnd: {
-    //     type: String,
-    //     required: true
-    // },
-    // Address: {
-    //     type: String
-    // },
+    TimeStart: {
+        type: String,
+        required: true
+    },
+    TimeEnd: {
+        type: String,
+        required: true
+    },
+    Address: {
+        type: String
+    },
     Lat: {
         type: Number,
         required: true
@@ -32,10 +36,10 @@ var quananSchema = new Schema({
     Lng: {
         type: Number,
         required: true
+    },
+    Detail: {
+        type: String
     }
-    // Detail: {
-    //     type: String
-    // },
     // Image: {
     //     type: String
     // }

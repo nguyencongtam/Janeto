@@ -18,10 +18,12 @@ export class AddLocationComponent implements OnInit {
   setLat: number;
   setLng: number;
   tenQuan: string="";
-  setAddress: String;
+  setAddress: string="";
   dataAddress: any =[];
+  content: string="";
   // locationCenter: google.maps.Map;
   locationCenter: google.maps.Map;
+  selectedFile: File = null;
   constructor(
     private http: Http,
     private _quaAnService: QuanAnService,
@@ -50,20 +52,28 @@ export class AddLocationComponent implements OnInit {
     console.log(this.setLat + " , " + this.setLng);
   }
 
-  getDataQuan(lat, lng) {
+  getDataQuan(lat, lng) {  
     return this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+lng).toPromise().then(response => {
       this.dataAddress = response.json();
       this.setAddress = this.dataAddress.results[0].formatted_address;
-      console.log(this.setAddress);
       return this.setAddress;
-    }).catch(err => console.log('loi lay url get'));
+    }).catch(err =>
+      console.log(err)
+      
+      );
   }
 
+  onFileSelected($event){
+    this.selectedFile = <File>event.target.files[0].name;
+    console.log(this.selectedFile);
+  }
 
+  ngPostDataQuanAn(tenQuan, setAddress, stime, etime, setLat, setLng){
+    
 
-  ngPostDataQuanAn(tenQuan, setLat, setLng){
+    console.log(this.content);
     try{
-      this._quaAnService.postQuanAn(tenQuan, setLat, setLng).subscribe(res =>{
+      this._quaAnService.postQuanAn(tenQuan, stime, etime, setAddress, setLat, setLng, this.content).subscribe(res =>{
         this.toastr.success("Thêm quán ăn mới thành công")
       })
     }

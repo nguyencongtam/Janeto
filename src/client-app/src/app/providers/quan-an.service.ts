@@ -39,13 +39,13 @@ export class QuanAnService {
      }
   }
 
-  postQuanAn(tenQuan, /*minPrice, maxPrice, timeStart, timeEnd,*/ lat, lng/*, detail, image*/){
+  postQuanAn(tenQuan, /*minPrice, maxPrice, */timeStart, timeEnd, Address, lat, lng, detail/*, image*/){
     return this.http.post(this.urlGetDataQuan, {
       TenQuan: tenQuan,
-      // MinPrices: minPrice,
-      // MaxPrice: maxPrice,
-      // TimeStart: timeStart,
-      // timeEnd: timeEnd,
+      TimeStart:timeStart,
+      TimeEnd: timeEnd,
+      Address: Address,
+      Detail: detail,
       Lat: lat,
       Lng: lng
     })

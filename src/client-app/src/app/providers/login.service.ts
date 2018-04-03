@@ -45,4 +45,8 @@ export class LoginService {
     this._isLogin.next(newValue);
   }
 
+  getToken(token) {
+    return this.http.post('localhost:8081/auth/gettoken', token, { responseType: 'text'} );
+  }
+
 }

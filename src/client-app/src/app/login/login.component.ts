@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   signin(email: string, password: string) {
-    localStorage.setItem('email', email); // find user by email
+    localStorage.setItem('email', email); // find user by email to get id to load profile
 
     this._login.login(this.email, this.password).subscribe(res => {
       // thanh cong
@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home']);
     }, err => {
       console.log('error login');
+      localStorage.removeItem('email');
       this.toastr.error('Error to login, please check your infomation', '', { positionClass: 'toast-bottom-right' });
     });
   }
@@ -65,6 +66,8 @@ export class LoginComponent implements OnInit {
         console.log(socialPlatform + 'sign in data : ' , userData);
         // Now sign-in with userData
           // check user
+        localStorage.setItem('email', userData.email); // find user by email to get id to load profile
+        localStorage.setItem('tokenS', userData.token);
         this._login.findUserByEmail(userData.email).subscribe(res => {
           console.log(res);
           if (res !== 'null') {
@@ -114,8 +117,11 @@ export class LoginComponent implements OnInit {
   }
 
   private createUserSocial(payload) {
+    localStorage.setItem('email', payload.email); // find user by email to get id to load profile
+    localStorage.setItem('tokenS', payload.token);
     this._login.loginSocial(payload).subscribe(res => {
       // thanh cong
+
       this.token = res;
       this.toastr.success('Login successfuly', '', { positionClass: 'toast-bottom-right' });
       this._login.setIsLogin(true);

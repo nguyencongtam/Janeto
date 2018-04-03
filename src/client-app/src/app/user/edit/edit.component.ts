@@ -62,7 +62,7 @@ export class EditComponent implements OnInit {
     });
   }
 
-  cancel() {
+  cancel(form: NgForm) {
     this._getprofile.setDisable(false);
   }
 

@@ -6,7 +6,8 @@ var secret = 'thisisasecret';
 
 module.exports = {
     login: login,
-    checkAuth: checkAuth
+    checkAuth: checkAuth,
+    getToken: getToken
 }
 
 function login(email, password) {
@@ -62,4 +63,48 @@ function checkAuth(email) {
         .catch(function (err) {
             return Promise.reject(err);
         })
+}
+
+function getToken(token) {
+    // console.log('token ctl: ', token);
+     return  new Promise(function (resolve, reject) {
+        jwt.verify(
+            token
+            , function (err, decoded) {
+                if (err) {
+                    reject({
+                        statusCode: 400,
+                        message: err.message
+                    });
+                } else {
+                    // decoded
+                    // console.log(decoded);
+                    const tk =  new Promise(function (resolve, reject) {
+                        jwt.sign({
+                            Email: decoded.Email,
+                            iat: decoded.iat
+                        }, function (err, token) {
+                            if (err) {
+                                reject({
+                                    statusCode: 400,
+                                    message: err.message
+                                });
+                            } else {
+                                // console.log(token);
+                                resolve(token);
+                            }
+                        })
+                    })
+                    .then(token => {
+                        // console.log(token);
+                        resolve(token);
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                   
+
+                }
+            })
+    });
 }

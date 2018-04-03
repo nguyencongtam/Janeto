@@ -23,12 +23,13 @@ export class MenuComponent implements OnInit {
       this.isLogin = value;
     });
 
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('token') || localStorage.getItem('tokenS')) {
       this.isLogin = true;
     } else {
       this.isLogin = false;
       localStorage.removeItem('email');
       localStorage.removeItem('isLogin');
+      localStorage.removeItem('local_login');
       this.router.navigateByUrl('/login');
 
     }

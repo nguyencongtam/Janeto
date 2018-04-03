@@ -7,6 +7,7 @@ module.exports = router;
 
 function login(req, res, next) {
     var email = req.body.Email;
+    console.log(req.emailUser);
     var password = req.body.Password;
 
     if (!email) {

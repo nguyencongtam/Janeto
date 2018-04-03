@@ -6,30 +6,30 @@
     <div class="row text-center">
       <div class="col-md-8 col-md-push-2">
         <div class="row">
-          <form class="form-group" #formProfile="ngForm" (ngSubmit)="update(formProfile)">
+    
             <div class="left col-md-6">
               <p>Name:</p>
             </div>
             <div class="right col-md-6">
-              <input type="text" id="name" name="Name" ngModel="{{ dataUser.Name}}">
+              <p>Ha Pham</p>
             </div>
             <div class="left col-md-6">
               <p>Email:</p>
             </div>
             <div class="right col-md-6">
-              <input type="email" name="Email" ngModel="{{ dataUser.Email }}">
+                <p>Ha Pham</p>
             </div>
             <div class="left col-md-6">
               <p>Address:</p>
             </div>
             <div class="right col-md-6">
-              <input type="text" name="Address" ngModel="{{ dataUser.Address }}">
+                <p>Ha Pham</p>
             </div>
             <div class="left col-md-6">
               <p>Phone:</p>
             </div>
             <div class="right col-md-6">
-              <input type="text" name="Phone" ngModel="{{ dataUser.Phone }}">
+                <p>Ha Pham</p>
             </div>
             <div class="left col-md-6">
               <p>Rate:</p>
@@ -40,38 +40,27 @@
             <div class="left col-md-6">
               <p>Sex:</p>
             </div>
-
-              <select name="Sex" ngModel="{{dataUser.Sex}}" value="{{dataUser.Sex}}" style="width: 180px;">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-
+            <div class="right col-md-6">
+                <p>Ha Pham</p>
+              </div>
             <div class="left col-md-6">
               <p>Birth day:</p>
             </div>
             <div class="right col-md-6">
-              <input type="date" name="Birthday" ngModel="{{ dataUser.Birthday }}">
+                <p>Ha Pham</p>
             </div>
             <div class="left col-md-6">
               <p>Favorite Food:</p>
             </div>
             <div class="right col-md-6">
-              <input type="text" name="FavoriteFood" ngModel="{{ dataUser.FavoriteFood }}">
+                <p>Ha Pham</p>
             </div>
             <div class="left col-md-6">
               <p>More detail:</p>
             </div>
             <div class="right col-md-6">
-              <input type="text" name="Detail" ngModel="{{ dataUser.Detail }}">
+                <p>Ha Pham</p>
             </div>
-            <div class="left col-md-6">
-            </div>
-            <div class="right col-md-6" style="margin-top: 50px;">
-              <button type="submit" class="btn btn-primary" style="width: 180px;">Update Infomation</button>
-            </div>
-          </form>
-
-          <pre>{{ formProfile.value | json }}</pre>
 
         </div>
       </div>

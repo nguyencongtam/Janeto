@@ -4,6 +4,7 @@ import { LoginService } from '../providers/login.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -14,7 +15,7 @@ export class MenuComponent implements OnInit {
   // isLogin = new BehaviorSubject<Boolean>(false);
   isLogin: any;
 
-  constructor(private _login: LoginService) {
+  constructor(private _login: LoginService, private router: Router) {
   }
 
   ngOnInit() {
@@ -24,6 +25,12 @@ export class MenuComponent implements OnInit {
 
     if (localStorage.getItem('token')) {
       this.isLogin = true;
+    } else {
+      this.isLogin = false;
+      localStorage.removeItem('email');
+      localStorage.removeItem('isLogin');
+      this.router.navigateByUrl('/login');
+
     }
     console.log('local login ' + this.isLogin);
   }

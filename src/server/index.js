@@ -12,6 +12,7 @@ var userRouter = require('./routes/user.route');
 var authRouter = require('./routes/auth.route');
 var typeFoodRouter = require('./routes/typefood.route');
 var userController = require('./controller/user.controller');
+var sendMail = require('./sendMail');
 
 var errorHandler = require('./middle-ware/error-handler');
 
@@ -61,6 +62,7 @@ app.post('/upload/:id', (req, res, next) => {
 app.use('/quanan', quananRouter);
 app.use('/users', userRouter);
 app.use('/type', typeFoodRouter);
+app.use('/contact', sendMail);
 
 app.use('/auth', authRouter);
 

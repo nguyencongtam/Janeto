@@ -52,7 +52,9 @@ var userSchema = new Schema({
     }],
     Provider: {
         type: String
-    }
+    },
+    IncommingRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    SentRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }]
     // TypeFood: [{
     //     type: Schema.Types.ObjectId,
     //     ref: 'TypeFood'

@@ -35,8 +35,9 @@ router.delete('/:id', auth.auth(), deleteUser);
 
 router.get('/:email', getUserByEmail);
 
-router.post('/savetypefood/:id', /*auth.auth(),*/ saveTypeFood);
-router.post('/addfriend/:id', addFriend);
+router.post('/savetypefood/:id', auth.auth(), saveTypeFood);
+router.post('/acceptfriend/:id',auth.auth(), acceptFriend);
+router.post('/sendFriendRequest/:id',auth.auth(), sendFriendRequest);
 router.get('/finduser/:email', finUserByEmail);
 
 module.exports = router;
@@ -134,7 +135,7 @@ function saveTypeFood(req, res, next) {
     })
 }        
 
-function addFriend(req, res, next) {
+function acceptFriend(req, res, next) {
     // accept add friend
 
     var friendId = req.params.id;
@@ -143,7 +144,7 @@ function addFriend(req, res, next) {
     User.findOne({ Email: emailUser })
     .then(user => {
 
-        userController.addFriends(friendId, user._id)
+        userController.acceptFriend(friendId, user._id)
         .then(function (friend) {
             res.send(friend);
         })
@@ -157,6 +158,26 @@ function addFriend(req, res, next) {
     })
 
     
+}
+
+function sendFriendRequest(req, res, next) {
+    var friendId = req.params.id;
+    var emailUser = req.emailUser;
+    // console.log(emailUser);
+    User.findOne({ Email: emailUser })
+    .then(user => {
+        userController.sendFriendRequest(friendId, user._id)
+        .then(function (friend) {
+            res.send(friend);
+        })
+        .catch(function (err) {
+            next(err);
+        })
+
+    })
+    .catch(err => {
+        console.log(err.message);
+    })
 }
 
 function getUserByEmail(req, res, next) {

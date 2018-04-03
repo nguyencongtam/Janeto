@@ -10,7 +10,7 @@ import { FriendComponent } from './friend/friend.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { InfoComponent } from './content/info/info.component';
 import { HomeguardService } from './providers/homeguard.service';
-import { AddLocationComponent } from './add-location/add-location.component'
+import { AddLocationComponent } from './add-location/add-location.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 
 const routes: Routes = [

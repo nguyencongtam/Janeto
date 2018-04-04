@@ -63,9 +63,16 @@ export class AddLocationComponent implements OnInit {
       );
   }
 
-  onFileSelected($event){
-    // this.selectedFile = <File>event.target.files[0].name;
-    // console.log(this.selectedFile);
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+    console.log(this.selectedFile);
+
+    const fd: any = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+    const URL = 'http://localhost:8081/upload/' + this.userId;
+    this.http.post(URL, fd).subscribe(res => {
+      console.log(res);
+    });
   }
 
   ngPostDataQuanAn(tenQuan, setAddress, stime, etime, setLat, setLng){

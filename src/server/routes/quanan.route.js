@@ -4,7 +4,8 @@ var quananController = require('../controller/quanan.controller');
 
 router.post('/', createQuanAn);
 router.get('/', getQuanAn);
-router.get('/:id', getTungQuanAn);
+router.get('/party/:id', getPartyQuanAn);
+router.get('/:id', getDetailQuanAn);
 router.put('/:id', auth.auth(), updateQuanAn);
 router.delete('/:id', auth.auth(), deleteQuanAn);
 
@@ -124,9 +125,20 @@ function deleteQuanAn(req, res, next) {
     })
 } 
 
-function getTungQuanAn(req, res, next){
+function getPartyQuanAn(req, res, next){
     var id = req.params.id;
-    quananController.getTungQuanAn(id)
+    quananController.getPartyQuanAn(id)
+    .then(function (data){
+        res.send(data);
+    })
+    .catch(function (err){
+        next(err);
+    })
+}
+
+function getDetailQuanAn(req, res, next){
+    var id = req.params.id;
+    quananController.getDetailQuanAn(id)
     .then(function (data){
         res.send(data);
     })

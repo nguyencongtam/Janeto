@@ -46,7 +46,11 @@ export class LoginService {
   }
 
   getToken(token) {
-    return this.http.post('localhost:8081/auth/gettoken', token, { responseType: 'text'} );
+    return this.http.post('http://localhost:8081/auth/gettoken', token, { responseType: 'text'} );
+  }
+
+  setTokenSocial(email) {
+    return this.http.post('http://localhost:8081/auth/settokensocial', {'Email': email}, { responseType: 'text'});
   }
 
 }

@@ -7,7 +7,8 @@ var secret = 'thisisasecret';
 module.exports = {
     login: login,
     checkAuth: checkAuth,
-    getToken: getToken
+    getToken: getToken, 
+    setTokenSocial: setTokenSocial
 }
 
 function login(email, password) {
@@ -106,5 +107,23 @@ function getToken(token) {
 
                 }
             })
+    });
+}
+
+
+function setTokenSocial(email) {
+    return new Promise(function (resolve, reject) {
+        jwt.sign({
+            Email: email
+        }, function (err, token) {
+            if (err) {
+                reject({
+                    statusCode: 400,
+                    message: err.message
+                });
+            } else {
+                resolve(token);
+            }
+        })
     });
 }

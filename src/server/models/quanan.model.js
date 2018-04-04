@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var quananSchema = new Schema({
+    slugUrl: {
+        type: String
+    },
     TenQuan: {
         type: String,
         required: true

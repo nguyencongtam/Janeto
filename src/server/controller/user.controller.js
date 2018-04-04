@@ -9,8 +9,12 @@ module.exports = {
     updateUser: updateUser,
     deleteUser: deleteUser,
     saveTypeFood: saveTypeFood,
-    addFriends: addFriends,
-    finUserByEmail: finUserByEmail
+    addFriends: acceptFriend,
+    getUserByEmail: getUserByEmail,
+    finUserByEmail: finUserByEmail,
+    updateImage: updateImage,
+    sendFriendRequest: sendFriendRequest,
+    acceptFriend: acceptFriend
 }
 
 function finUserByEmail(email) {
@@ -98,14 +102,14 @@ function saveTypeFood(typefoodId, userId) {
         })
 }
 
-function addFriends(friendId) {
+function acceptFriend(friendId, userId) {
     var frId = { friendId };
-    var usId = { friendId: '5aa0f31a6cbb9c24bcb03f7b' }
-    return User.update({ _id: '5aa0f31a6cbb9c24bcb03f7b'}, { $addToSet: { Friend: frId } })
+    var usId = { friendId: userId }
+    return User.update({ _id: userId}, { $addToSet: { Friend: frId } }, { $pull: { SentRequests: frId } })
         .then(function () {
             console.log('them thanh cong user');
-            // return Promise.resolve();
-            User.update({ _id:  friendId}, { $addToSet: { Friend: usId } })
+            // return Promise.resolve();    
+            User.update({ _id:  friendId}, { $addToSet: { Friend: usId } }, { $pull: { IncommingRequests: usId }} )
                 .then(function (raw) {
                     console.log('them thanh cong friend');
                     return Promise.resolve();
@@ -119,4 +123,40 @@ function addFriends(friendId) {
             console.log('loi them user');
             return Promise.reject(err);
         })
+}
+
+function sendFriendRequest(friendId, userId) {
+    return User.findByIdAndUpdate(userId, { $addToSet: { SentRequests: friendId } })
+        .then(function () {
+            console.log('send friend request success');
+            // return Promise.resolve();
+            User.findByIdAndUpdate(friendId, { $addToSet: { IncommingRequests: userId } })
+                .then(function (raw) {
+                    console.log('them thanh cong friend');
+                    return Promise.resolve();
+                })
+                .catch(function (err) {
+                    console.log('loi them friend');
+                    return Promise.reject();
+                })
+        })
+        .catch(function (err) {
+            console.log('loi them user');
+            return Promise.reject(err);
+        })
+
+}
+
+function getUserByEmail(userEmail) {
+    return User.findOne({ Email : userEmail}, { password: 0 })
+        .then(function (users) {
+            return Promise.resolve(users);
+        })
+        .catch(function (err) {
+            return Promise.reject(err);
+        })
+}
+
+function updateImage(id, image) {
+    return User.findByIdAndUpdate(id , { Image: image })
 }

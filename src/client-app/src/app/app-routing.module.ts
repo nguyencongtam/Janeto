@@ -10,7 +10,7 @@ import { FriendComponent } from './friend/friend.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { InfoComponent } from './content/info/info.component';
 import { HomeguardService } from './providers/homeguard.service';
-import { AddLocationComponent } from './add-location/add-location.component'
+import { AddLocationComponent } from './add-location/add-location.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 
 const routes: Routes = [
@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'listfriend', component: FriendComponent},
-  {path: 'info', component: InfoComponent},
+  {path: 'quanan/:id', component: InfoComponent},
   {path: 'addlocation', component: AddLocationComponent, canActivate: [HomeguardService]},
   {path: 'contact' , component: ContactComponent},
   {path: 'profile' , component: UserComponent},

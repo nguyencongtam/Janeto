@@ -13,7 +13,7 @@
   <p style="font-size: 12px;">
     <i style="color: gray;" class="fas fa-info-circle"></i> {{ quan.TimeStart }} - {{ quan.TimeEnd }} </p>
   <span class="btn">
-    <button style="width:95px;" type="button" class="btn btn-outline-info">View more</button>
+    <button [routerLink]="['/quanan/',quan.slugUrl]" style="width:95px;" type="button" class="btn btn-outline-info">View more</button>
     <button style="width:95px" type="button" class="btn btn-danger" (click)="openDialog()">Set party</button>
     <button type="button" class="btn btn-success" (click)="openJoinDialog(quan._id)">Join</button>
   </span>

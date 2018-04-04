@@ -7,7 +7,7 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class LoginService {
-  private _isLogin = new BehaviorSubject<Boolean>(false);
+  private _isLogin = new BehaviorSubject<Boolean>(false); // check menu
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
@@ -43,6 +43,10 @@ export class LoginService {
 
   public setIsLogin(newValue: boolean) {
     this._isLogin.next(newValue);
+  }
+
+  getToken(token) {
+    return this.http.post('localhost:8081/auth/gettoken', token, { responseType: 'text'} );
   }
 
 }

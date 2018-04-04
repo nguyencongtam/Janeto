@@ -2,11 +2,13 @@ var router = require('express').Router();
 var authController = require('../controller/auth.controller');
 
 router.post('/login', login);
+router.post('/gettoken', getToken);
 
 module.exports = router;
 
 function login(req, res, next) {
     var email = req.body.Email;
+    console.log(req.emailUser);
     var password = req.body.Password;
 
     if (!email) {
@@ -28,4 +30,16 @@ function login(req, res, next) {
                 next(err);
             })
     }
+}
+
+function getToken(req, res, next) {
+    var token = req.body.token;
+
+    authController.getToken(token)
+        .then(function (token) {
+            res.send(token)
+        })
+        .catch(function (err) {
+            next(err);
+        })
 }

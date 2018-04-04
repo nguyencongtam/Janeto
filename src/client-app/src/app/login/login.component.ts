@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   email: String = '';
   password: String = '';
   isLogin: any = {};
-  checked: Boolean = false;
   token: any;
 
   constructor(private _login: LoginService, private toastr: ToastrService, private router: Router,
@@ -36,28 +35,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  check() {
-    this.checked = !this.checked;
-    // console.log(this.checked);
-  }
-
   signin(email: string, password: string) {
-    // console.log(this.email = email);
-    // console.log(this.password = password);
+    localStorage.setItem('email', email); // find user by email to get id to load profile
 
     this._login.login(this.email, this.password).subscribe(res => {
       // thanh cong
+      localStorage.setItem('token', res); // save state logined
       this.token = res;
       this.toastr.success('Login successfuly', '', { positionClass: 'toast-bottom-right' });
-      // localStorage.setItem('isLogin', 'true');
       this._login.setIsLogin(true);
-      localStorage.setItem('local_login', 'true');
+      localStorage.setItem('local_login', 'true'); // save state logined for menu subcribe and guard
       this.router.navigate(['/home']);
-      if (this.checked) {
-        localStorage.setItem('token', this.token);
-      }
     }, err => {
       console.log('error login');
+      localStorage.removeItem('email');
       this.toastr.error('Error to login, please check your infomation', '', { positionClass: 'toast-bottom-right' });
     });
   }
@@ -75,6 +66,8 @@ export class LoginComponent implements OnInit {
         console.log(socialPlatform + 'sign in data : ' , userData);
         // Now sign-in with userData
           // check user
+        localStorage.setItem('email', userData.email); // find user by email to get id to load profile
+        localStorage.setItem('tokenS', userData.token);
         this._login.findUserByEmail(userData.email).subscribe(res => {
           console.log(res);
           if (res !== 'null') {
@@ -124,16 +117,16 @@ export class LoginComponent implements OnInit {
   }
 
   private createUserSocial(payload) {
+    localStorage.setItem('email', payload.email); // find user by email to get id to load profile
+    localStorage.setItem('tokenS', payload.token);
     this._login.loginSocial(payload).subscribe(res => {
       // thanh cong
+
       this.token = res;
       this.toastr.success('Login successfuly', '', { positionClass: 'toast-bottom-right' });
       this._login.setIsLogin(true);
       localStorage.setItem('isLoginSocial', 'true');
       this.router.navigate(['/home']);
-      if (this.checked) {
-        localStorage.setItem('token', this.token);
-      }
     }, err => {
       console.log(err);
       this.toastr.error('Error to login', 'Error social login', { positionClass: 'toast-bottom-right' });

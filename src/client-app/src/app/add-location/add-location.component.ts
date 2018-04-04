@@ -69,18 +69,18 @@ export class AddLocationComponent implements OnInit {
 
     const fd: any = new FormData();
     fd.append('file', this.selectedFile, this.selectedFile.name);
-    const URL = 'http://localhost:8081/upload/' + this.userId;
-    this.http.post(URL, fd).subscribe(res => {
-      console.log(res);
-    });
+    // const URL = 'http://localhost:8081/upload/' + this.userId;
+    // this.http.post(URL, fd).subscribe(res => {
+    //   console.log(res);
+    // });
   }
 
   ngPostDataQuanAn(tenQuan, setAddress, stime, etime, setLat, setLng){
-    
+    var slugUrl = this.slugify(tenQuan);
 
     console.log(this.content);
     try{
-      this._quaAnService.postQuanAn(tenQuan, stime, etime, setAddress, setLat, setLng, this.content).subscribe(res =>{
+      this._quaAnService.postQuanAn(slugUrl, tenQuan, stime, etime, setAddress, setLat, setLng, this.content).subscribe(res =>{
         this.toastr.success("Thêm quán ăn mới thành công")
       })
     }
@@ -89,5 +89,15 @@ export class AddLocationComponent implements OnInit {
     }
   }
   
+  slugify(text)
+  {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')           // Replace spaces with -
+      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+      .replace(/^-+/, '')             // Trim - from start of text
+      .replace(/-+$/, '');            // Trim - from end of text
+  }
+
 
 }

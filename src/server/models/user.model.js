@@ -38,9 +38,23 @@ var userSchema = new Schema({
     Phone: {
         type: Number,
     },
+    FavoriteFood: {
+        type: String
+    },
+    Birthday: {
+        type: String
+    },
+    TypeFood: [{
+        typefoodId: String
+    }],
+    Friend: [{
+        friendId: String
+    }],
     Provider: {
         type: String
-    }
+    },
+    IncommingRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    SentRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }]
     // TypeFood: [{
     //     type: Schema.Types.ObjectId,
     //     ref: 'TypeFood'

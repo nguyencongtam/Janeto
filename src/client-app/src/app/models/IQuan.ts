@@ -1,5 +1,6 @@
 export interface IQuan {
     _id: string,
+    slugUrl: string,
     TenQuan: string,
     // MinPrices: string,
     // MaxPrices: string,

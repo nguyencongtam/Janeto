@@ -9,8 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuanAnService } from './providers/quan-an.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModel, FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
-import { NgModel, FormsModule } from '@angular/forms';
 import { LoginService } from './providers/login.service';
 import { CommonModule } from '@angular/common';
 import { HomeguardService } from './providers/homeguard.service';
@@ -45,6 +45,7 @@ import { SignoutComponent } from './user/signout/signout.component';
 import { EditComponent } from './user/edit/edit.component';
 import { SignupService } from './providers/signup.service';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { GetprofileService } from './providers/getprofile.service';
 import { ContactComponent } from './contact/contact.component';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { TypeFoodService } from './providers/type-food.service';
@@ -85,8 +86,8 @@ export function getAuthServiceConfigs() {
     WelcomeComponent,
     JoinDialogComponent,
     PageNotFoundComponent,
+    InfoComponent,
     GoogleMapAgmComponent,
-    InfoComponent,   
     UserComponent,
     LeftComponent,
     ChangepassComponent,
@@ -108,20 +109,20 @@ export function getAuthServiceConfigs() {
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({   
+    AgmCoreModule.forRoot({
        apiKey: 'AIzaSyBtHJaP8NyKmn0-sOaMS_WJ5lj8Hu2HrI0'
-       
     }),
     FormsModule,
     CommonModule,
     SocialLoginModule,
-    CKEditorModule
+    CKEditorModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     MyDialogComponent,
     JoinDialogComponent
   ],
-  providers: [QuanAnService, LoginService, HomeguardService, SignupService, TypeFoodService, {
+  providers: [QuanAnService, LoginService, HomeguardService, SignupService, TypeFoodService, GetprofileService, {
     provide: AuthServiceConfig,
     useFactory: getAuthServiceConfigs
   }],

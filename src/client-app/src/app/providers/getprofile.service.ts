@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class GetprofileService {
   emailUser: string;
+  userId: string;
   private disable = new BehaviorSubject<Boolean>(false);
 
   constructor(private http: Http, private _login: LoginService) { }
@@ -35,23 +36,18 @@ export class GetprofileService {
         headers: headers,
         method: RequestMethod.Put
       });
-      // console.log(localStorage.getItem('token'));
-
-      return this.http.put(URL, body, { headers: headers })
-        .toPromise()
-        .then(response => response.json());
-    } else {
-      const URL = 'http://localhost:8081/users/' + id;
-      const headers = new Headers({ 'Content-Type': 'application/json', 'token': localStorage.getItem('tokenS') });
-      const option = new RequestOptions({
-        headers: headers,
-        method: RequestMethod.Put
-      });
-      // console.log(localStorage.getItem('token'));
 
       return this.http.put(URL, body, { headers: headers })
         .toPromise()
         .then(response => response.json());
     }
+  }
+
+  getFriend() {
+    // console.log(this.userId);
+    const URL = 'http://localhost:8081/users/getfriend/' + '5ac5774a68211e157897167f';
+    return this.http.get(URL)
+      .toPromise()
+      .then(response => response.json());
   }
 }

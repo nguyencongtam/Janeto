@@ -34,6 +34,7 @@ export class EditComponent implements OnInit {
     this._getprofile.getProfile().then(data => {
       this.dataUser = data;
       this.userId = data._id;
+      this._getprofile.userId = data._id;
       if (data.Sex === 'male') {
         this.sex = true;
       } else {

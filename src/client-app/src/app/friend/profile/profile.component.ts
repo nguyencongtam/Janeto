@@ -9,11 +9,18 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  dataUser: any[];
 
   constructor(private _getprofile: GetprofileService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.getProfile();
   }
 
+  getProfile() {
+    this._getprofile.getProfile().then(data => {
+      this.dataUser = data;
+    });
+  }
 
 }

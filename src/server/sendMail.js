@@ -10,21 +10,22 @@ module.exports = router;
 function sendMail(req, res, next) {
     console.log(req.body);
     // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport(smtpTransport({
+    let transporter = nodemailer.createTransport({
         service: 'Gmail',
-        host: 'smtp.gmail.com',
+        pool: true,
+        host: 'smtp-relay.gmail.com',
         port: 465,
         secure: true,
         auth: {
             user: req.email, // generated ethereal user
-            //pass: req.password, // generated ethereal password
-            type: 'OAuth2',
-            clientId: '646647943021-00cqln0g4uahndb3ml8kev3nmmp2oqk6.apps.googleusercontent.com',
-            clientSecret: '6InwZfAGiNB-7ieRU7s85Tv_'
+            pass: req.password, // generated ethereal password
+            // type: 'OAuth2',
+            // clientId: '646647943021-00cqln0g4uahndb3ml8kev3nmmp2oqk6.apps.googleusercontent.com',
+            // clientSecret: '6InwZfAGiNB-7ieRU7s85Tv_'
             //refreshToken: serverConfig.gmail.refresh_token,
             // accessToken: serverConfig.gmail.access_token,
         }
-    }));
+    });
 
     // setup email data with unicode symbols
     let mailOptions = {

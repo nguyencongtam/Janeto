@@ -3,6 +3,7 @@ var authController = require('../controller/auth.controller');
 
 router.post('/login', login);
 router.post('/gettoken', getToken);
+router.post('/settokensocial', setTokenSocial);
 
 module.exports = router;
 
@@ -36,6 +37,18 @@ function getToken(req, res, next) {
     var token = req.body.token;
 
     authController.getToken(token)
+        .then(function (token) {
+            res.send(token)
+        })
+        .catch(function (err) {
+            next(err);
+        })
+}
+
+function setTokenSocial(req, res, next) {
+    var email = req.body.Email;
+
+    authController.setTokenSocial(email)
         .then(function (token) {
             res.send(token)
         })

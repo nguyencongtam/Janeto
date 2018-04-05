@@ -67,8 +67,11 @@ export class LoginComponent implements OnInit {
         // Now sign-in with userData
           // check user
         localStorage.setItem('email', userData.email); // find user by email to get id to load profile
-        localStorage.setItem('tokenS', userData.token);
+
         this._login.findUserByEmail(userData.email).subscribe(res => {
+
+           this.setTokenSocial(userData.email);
+
           console.log(res);
           if (res !== 'null') {
             console.log('co email');
@@ -133,5 +136,11 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  setTokenSocial(email) {
+    this._login.setTokenSocial(email).subscribe(token => {
+            console.log('social token');
+            localStorage.setItem('token', token);
+          });
+  }
 
 }

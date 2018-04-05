@@ -44,25 +44,25 @@ var userSchema = new Schema({
     Birthday: {
         type: String
     },
-    TypeFood: [{
-        typefoodId: String
-    }],
-    Friend: [{
-        friendId: String
-    }],
+    // TypeFood: [{
+    //     typefoodId: String
+    // }],
+    // Friend: [{
+    //     friendId: String
+    // }],
     Provider: {
         type: String
     },
-    IncommingRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    SentRequests: [{ type: Schema.Types.ObjectId, ref: 'User' }]
-    // TypeFood: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'TypeFood'
-    // }],
-    // Friend: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Friend'
-    // }]
+    IncommingRequests: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+    SentRequests: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+    TypeFood: [{
+        type: Schema.Types.ObjectId,
+        ref: 'typefood'
+    }],
+    Friend: [{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    }]
 });
 
 userSchema.index({ Name: 'text', Phone: 'text' });

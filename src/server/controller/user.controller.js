@@ -14,7 +14,8 @@ module.exports = {
     finUserByEmail: finUserByEmail,
     updateImage: updateImage,
     sendFriendRequest: sendFriendRequest,
-    acceptFriend: acceptFriend
+    acceptFriend: acceptFriend,
+    getfriend: getfriend
 }
 
 function finUserByEmail(email) {
@@ -103,13 +104,12 @@ function saveTypeFood(typefoodId, userId) {
 }
 
 function acceptFriend(friendId, userId) {
-    var frId = { friendId };
-    var usId = { friendId: userId }
-    return User.update({ _id: userId}, { $addToSet: { Friend: frId } }, { $pull: { SentRequests: frId } })
+    // var frId = { friendId };
+    // var usId = { friendId: userId }
+    return User.update({ _id: userId}, { $addToSet: { Friend: friendId } }, { $pull: { SentRequests: friendId } })
         .then(function () {
-            console.log('them thanh cong user');
-            // return Promise.resolve();    
-            User.update({ _id:  friendId}, { $addToSet: { Friend: usId } }, { $pull: { IncommingRequests: usId }} )
+            console.log('them thanh cong user');   
+            User.update({ _id:  friendId}, { $addToSet: { Friend: userId } }, { $pull: { IncommingRequests: userId }} )
                 .then(function (raw) {
                     console.log('them thanh cong friend');
                     return Promise.resolve();
@@ -159,4 +159,15 @@ function getUserByEmail(userEmail) {
 
 function updateImage(id, image) {
     return User.findByIdAndUpdate(id , { Image: image })
+}
+
+function getfriend(userId) {
+    return User.findById(userId).populate('Friend')
+    .then(function (user) {
+        const friendInfo = user.Friend.toObject();
+        return Promise.resolve(friendInfo);
+    })
+    .catch(function (err) {
+        return Promise.reject(err);
+    })
 }

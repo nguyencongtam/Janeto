@@ -39,6 +39,7 @@ router.post('/savetypefood/:id', auth.auth(), saveTypeFood);
 router.post('/acceptfriend/:id',auth.auth(), acceptFriend);
 router.post('/sendFriendRequest/:id',auth.auth(), sendFriendRequest);
 router.get('/finduser/:email', finUserByEmail);
+router.get('/getfriend/:id', getfriend);
 
 module.exports = router;
 
@@ -189,4 +190,15 @@ function getUserByEmail(req, res, next) {
         .catch(function (err) {
             next(err);
         })
+}
+
+function getfriend(req, res, next) {
+    const userId = req.params.id;
+    userController.getfriend(userId)
+    .then(function (users) {
+        res.send(users);
+    })
+    .catch(function (err) {
+        next(err);
+    })
 }

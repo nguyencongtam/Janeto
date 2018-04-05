@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetprofileService } from '../../providers/getprofile.service';
 
 @Component({
   selector: 'app-listfriends',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listfriends.component.scss']
 })
 export class ListfriendsComponent implements OnInit {
-
-  constructor() { }
+  friendInfo: any[];
+  constructor(private _getprofile: GetprofileService) { }
 
   ngOnInit() {
+    this._getprofile.getFriend().then(data => {
+      console.log(data);
+      this.friendInfo = data;
+    });
   }
 
 }

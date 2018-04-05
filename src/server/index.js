@@ -42,6 +42,12 @@ app.use(multer({
     storage
   }).single('file'))
 
+var upload = multer({storage: storage})
+app.post('/upload', upload.single("file"), function(req, res){
+    console.log(req.file);
+    res.send("up thanh cong");
+})
+
 //var upload = multer({ dest: '../client-app/src/assets/'}).single('file');
 /** API path that will upload the files */
 app.post('/upload/:id', (req, res, next) => {

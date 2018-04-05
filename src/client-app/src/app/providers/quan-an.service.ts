@@ -39,7 +39,7 @@ export class QuanAnService {
      }
   }
 
-  postQuanAn(slugUrl, tenQuan, /*minPrice, maxPrice, */timeStart, timeEnd, Address, lat, lng, detail/*, image*/){
+  postQuanAn(slugUrl, tenQuan, timeStart, timeEnd, Address, lat, lng, detail, image){
     return this.http.post(this.urlGetDataQuan, {
       slugUrl: slugUrl,
       TenQuan: tenQuan,
@@ -48,7 +48,8 @@ export class QuanAnService {
       Address: Address,
       Detail: detail,
       Lat: lat,
-      Lng: lng
+      Lng: lng,
+      Image: image
     })
   }
 

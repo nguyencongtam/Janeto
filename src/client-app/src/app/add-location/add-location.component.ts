@@ -65,10 +65,10 @@ export class AddLocationComponent implements OnInit {
 
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
-    console.log(this.selectedFile);
+    console.log(this.selectedFile.name);
 
-    const fd: any = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
+    // const fd: any = new FormData();
+    // fd.append('file', this.selectedFile, this.selectedFile.name);
     // const URL = 'http://localhost:8081/upload/' + this.userId;
     // this.http.post(URL, fd).subscribe(res => {
     //   console.log(res);
@@ -77,10 +77,18 @@ export class AddLocationComponent implements OnInit {
 
   ngPostDataQuanAn(tenQuan, setAddress, stime, etime, setLat, setLng){
     var slugUrl = this.slugify(tenQuan);
+    var image = this.selectedFile.name;
+
+    const fd: any = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+    const URL = 'http://localhost:8081/upload'
+    this.http.post(URL, fd).subscribe(res => {
+      console.log(res);
+    });
 
     console.log(this.content);
     try{
-      this._quaAnService.postQuanAn(slugUrl, tenQuan, stime, etime, setAddress, setLat, setLng, this.content).subscribe(res =>{
+      this._quaAnService.postQuanAn(slugUrl, tenQuan, stime, etime, setAddress, setLat, setLng, this.content, image).subscribe(res =>{
         this.toastr.success("Thêm quán ăn mới thành công")
       })
     }

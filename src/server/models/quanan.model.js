@@ -42,10 +42,10 @@ var quananSchema = new Schema({
     },
     Detail: {
         type: String
+    },
+    Image: {
+        type: String
     }
-    // Image: {
-    //     type: String
-    // }
     // Party: {
     //     _id: {
     //         type: String,

@@ -1,6 +1,7 @@
 <div  *ngFor='let quan of quanAn' class="quan">
   <img *ngIf="quan.Image!==''" src="assets/{{quan.Image}}" alt="" width="300" height="250">
-  <img *ngIf="!quan.Image" src="assets/wpid-photo-317.png" alt="" width="300" height="250">
+  <img *ngIf="!quan.Image" src="assets/222.png" alt="" width="300" height="250">
+  <!-- <img *ngIf="!quan.Image" src="assets/image-not-found.jpg" alt="" width="300" height="250"> -->
   <div class="row">
     <div class="col-md-10">
       <p style="font-weight:500; color: rgb(34, 31, 31);">{{quan.TenQuan}}</p>
@@ -9,8 +10,9 @@
       <i style="color:gray; font-size: 18px;" class="fab fa-gratipay"></i>
     </div>
   </div>
-  <p>
-    <i style="color: gray;" class="fas fa-map-marker"></i> {{ quan.Address }}</p>
+    <p>
+      <i style="color: gray;" class="fas fa-map-marker"></i> {{ quan.Address }}
+    </p>
   <p style="font-size: 12px;">
     <i style="color: gray;" class="fas fa-info-circle"></i> {{ quan.TimeStart }} - {{ quan.TimeEnd }} </p>
   <span class="btn">

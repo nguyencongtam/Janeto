@@ -22,9 +22,15 @@
         font-weight: 500;
     }
 }
-.choose:hover {
-    color: greenyellow;
-    cursor: pointer;
+button {
+    width: 130px;
+    height: 40px;
+}
+button :hover {
+    cursor: pointer; 
+} 
+.choose :hover {
+    background-color: greenyellow;
 }
 hr {
     width: 80%;

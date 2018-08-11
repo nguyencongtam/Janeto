@@ -11,6 +11,7 @@ module.exports = {
     setTokenSocial: setTokenSocial
 }
 
+// fasgfasfnasfnaiossnfoia
 function login(email, password) {
     var hash = crypto.createHmac('sha256', secret)
         .update(password)

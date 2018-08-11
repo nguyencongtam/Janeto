@@ -23,6 +23,7 @@ app.all('*', function(req, res, next) {
     next();
 });
 
+// comment DEMO GIT
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 app.use(express.static('public'));

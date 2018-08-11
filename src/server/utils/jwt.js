@@ -5,6 +5,8 @@ var fs = require('fs');
 var cert = fs.readFileSync(__dirname + '/key/key.pem');
 var pub = fs.readFileSync(__dirname + '/key/key.pub');
 
+// daosihgioashdoihfsaos
+
 exports.sign = function (obj, callback) {
     jwt.sign(obj, cert, {
         algorithm: 'RS256'
